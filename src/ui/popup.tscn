@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://cakyn3hetrj5q"]
+
+[ext_resource type="Script" path="res://Src/ui/popup.gd" id="1_qe4y2"]
+[ext_resource type="Texture2D" uid="uid://c6c0s462rb3uj" path="res://Assets/ui/btn/adventure_btn_normal.png" id="1_xtwfj"]
+[ext_resource type="Texture2D" uid="uid://bxcmw063qsglp" path="res://Assets/ui/btn/adventure_btn_pressed.png" id="2_cl2sr"]
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="2_utmbo"]
+[ext_resource type="FontFile" uid="uid://dn1d737hrtc4" path="res://Assets/fonts/NanumSquareRoundB.ttf" id="3_3jn2a"]
+[ext_resource type="Texture2D" uid="uid://fs5wxjag78hf" path="res://Assets/ui/bar.png" id="3_np4i4"]
+[ext_resource type="FontFile" uid="uid://bv3gahc7tukwm" path="res://Assets/fonts/NanumBarunpenB.ttf" id="7_althl"]
+[ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="8_0a0wq"]
+[ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="9_w8ycb"]
+
+[node name="Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -120.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qe4y2")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -29.0
+offset_right = 324.0
+offset_bottom = 331.0
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_utmbo")
+
+[node name="AdventureBtn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 313.0
+offset_right = 429.0
+offset_bottom = 413.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("1_xtwfj")
+texture_pressed = ExtResource("2_cl2sr")
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(199, 61)
+scale = Vector2(1.09167, 1.36667)
+texture = ExtResource("3_np4i4")
+
+[node name="TitleLabel" type="Label" parent="Bar"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = -16.3043
+offset_right = -120.0
+offset_bottom = 14.6957
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3jn2a")
+theme_override_font_sizes/font_size = 20
+text = "깊은 숲3 "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RegionImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 101.0
+offset_right = 317.0
+offset_bottom = 261.0
+
+[node name="MonsterInfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 258.0
+offset_right = 260.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_althl")
+theme_override_font_sizes/font_size = 32
+
+[node name="ExitBtn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 41.0
+offset_right = 368.0
+offset_bottom = 81.0
+texture_normal = ExtResource("8_0a0wq")
+texture_pressed = ExtResource("9_w8ycb")
+
+[connection signal="pressed" from="AdventureBtn" to="." method="_on_adventure_btn_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]

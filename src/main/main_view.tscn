@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bndjoey7jplr4"]
+
+[ext_resource type="Script" path="res://src/main/main_view.gd" id="1_idv3w"]
+[ext_resource type="PackedScene" uid="uid://dwkj8jyxrcq4k" path="res://src/Map/world_map.tscn" id="1_jcdl2"]
+[ext_resource type="PackedScene" uid="uid://dbi28hmt1dd6b" path="res://src/ui/menu_control.tscn" id="1_s24wl"]
+[ext_resource type="PackedScene" uid="uid://cx1lvf1n0gepe" path="res://src/ui/hud.tscn" id="2_lpvff"]
+
+[node name="MainView" type="Node2D"]
+script = ExtResource("1_idv3w")
+
+[node name="TopView" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldMap" parent="TopView" instance=ExtResource("1_jcdl2")]
+layout_mode = 1
+
+[node name="MenuControl" parent="." instance=ExtResource("1_s24wl")]
+
+[node name="Hud" parent="." instance=ExtResource("2_lpvff")]

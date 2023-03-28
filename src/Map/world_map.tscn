@@ -1,0 +1,174 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwkj8jyxrcq4k"]
+
+[ext_resource type="Script" path="res://src/Map/world_map.gd" id="1_5d688"]
+[ext_resource type="Texture2D" uid="uid://bbf3ef58a5yud" path="res://Assets/map/lake.png" id="1_08j1c"]
+[ext_resource type="Texture2D" uid="uid://tbdl1sq0q1e5" path="res://Assets/map/home.png" id="1_521wx"]
+[ext_resource type="Texture2D" uid="uid://syb6hi8p34qm" path="res://Assets/map/tree.png" id="1_niywx"]
+[ext_resource type="FontFile" uid="uid://1ibedfa8lrql" path="res://Assets/fonts/HSGyeoulNoonkott2.0-Regular.ttf" id="2_j5mce"]
+[ext_resource type="Texture2D" uid="uid://c48yaw2v0kljq" path="res://Assets/map/mountain.png" id="4_ds0lv"]
+[ext_resource type="Texture2D" uid="uid://bcc3go34q2c5h" path="res://Assets/map/mountain3.png" id="5_6aeu1"]
+[ext_resource type="Texture2D" uid="uid://5866xuxeci45" path="res://Assets/map/mountain2.png" id="6_lrjep"]
+[ext_resource type="PackedScene" uid="uid://pgqm8cq28t16" path="res://src/ui/region_point.tscn" id="7_2y67e"]
+[ext_resource type="Script" path="res://src/Map/DrawControl.gd" id="9_fg12f"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5d688")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+offset_right = 2560.0
+offset_bottom = 1800.0
+color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[node name="RegionName" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PerryLabel" type="Label" parent="ColorRect/RegionName"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 329.0
+offset_right = 827.0
+offset_bottom = 768.0
+rotation = 0.46724
+theme_override_colors/font_color = Color(0, 0, 0, 0.054902)
+theme_override_fonts/font = ExtResource("2_j5mce")
+theme_override_font_sizes/font_size = 256
+text = "Perry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AshLandLabel" type="Label" parent="ColorRect/RegionName"]
+layout_mode = 0
+offset_left = 1430.0
+offset_top = 1551.0
+offset_right = 2556.0
+offset_bottom = 1990.0
+rotation = -0.415877
+theme_override_colors/font_color = Color(0, 0, 0, 0.054902)
+theme_override_fonts/font = ExtResource("2_j5mce")
+theme_override_font_sizes/font_size = 212
+text = "AshLand"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OceanusLabel" type="Label" parent="ColorRect/RegionName"]
+layout_mode = 0
+offset_left = 1473.0
+offset_top = 63.0
+offset_right = 2599.0
+offset_bottom = 502.0
+rotation = -0.081128
+theme_override_colors/font_color = Color(0, 0, 0, 0.054902)
+theme_override_fonts/font = ExtResource("2_j5mce")
+theme_override_font_sizes/font_size = 212
+text = "Oceanus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ObjectControl" type="Node2D" parent="ColorRect"]
+position = Vector2(-732, -317)
+
+[node name="mountainObject" type="Node2D" parent="ColorRect/ObjectControl"]
+
+[node name="Mountain" type="Sprite2D" parent="ColorRect/ObjectControl/mountainObject"]
+position = Vector2(822, 634)
+texture = ExtResource("4_ds0lv")
+
+[node name="Mountain4" type="Sprite2D" parent="ColorRect/ObjectControl/mountainObject"]
+position = Vector2(861, 624)
+texture = ExtResource("5_6aeu1")
+
+[node name="Mountain3" type="Sprite2D" parent="ColorRect/ObjectControl/mountainObject"]
+position = Vector2(905, 634)
+texture = ExtResource("6_lrjep")
+
+[node name="Mountain2" type="Sprite2D" parent="ColorRect/ObjectControl/mountainObject"]
+position = Vector2(873, 634)
+texture = ExtResource("4_ds0lv")
+
+[node name="Mountain5" type="Sprite2D" parent="ColorRect/ObjectControl/mountainObject"]
+position = Vector2(937, 634)
+texture = ExtResource("5_6aeu1")
+
+[node name="treeObject" type="Node2D" parent="ColorRect/ObjectControl"]
+
+[node name="Tree" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(990, 937)
+texture = ExtResource("1_niywx")
+
+[node name="Tree2" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1044, 937)
+texture = ExtResource("1_niywx")
+
+[node name="Tree4" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1257, 689)
+texture = ExtResource("1_niywx")
+
+[node name="Tree5" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1209, 671)
+texture = ExtResource("1_niywx")
+
+[node name="Tree6" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1162, 681)
+texture = ExtResource("1_niywx")
+
+[node name="Tree7" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1115, 699)
+texture = ExtResource("1_niywx")
+
+[node name="Tree8" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1254, 724)
+texture = ExtResource("1_niywx")
+
+[node name="Tree9" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(1275, 754)
+texture = ExtResource("1_niywx")
+
+[node name="Tree3" type="Sprite2D" parent="ColorRect/ObjectControl/treeObject"]
+position = Vector2(894, 936)
+texture = ExtResource("1_niywx")
+
+[node name="houseObject" type="Node2D" parent="ColorRect/ObjectControl"]
+
+[node name="Home" type="Sprite2D" parent="ColorRect/ObjectControl/houseObject"]
+position = Vector2(948, 932)
+texture = ExtResource("1_521wx")
+
+[node name="lakeObject" type="Node2D" parent="ColorRect/ObjectControl"]
+
+[node name="Lake" type="Sprite2D" parent="ColorRect/ObjectControl/lakeObject"]
+position = Vector2(1182, 760)
+texture = ExtResource("1_08j1c")
+
+[node name="RegionControl" type="Node2D" parent="ColorRect"]
+position = Vector2(-177, -223)
+
+[node name="RegionPoint" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(373, 877)
+region_id = 0
+
+[node name="RegionPoint2" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(578, 715)
+
+[node name="RegionPoint3" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(309, 576)
+region_id = 2
+
+[node name="RegionPoint4" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(588, 901)
+region_id = 3
+
+[node name="DrawControl" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_fg12f")

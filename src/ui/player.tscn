@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5h65l35qkvtt"]
+
+[ext_resource type="Script" path="res://Src/ui/player.gd" id="1_ytwj1"]
+[ext_resource type="Texture2D" uid="uid://b7iapspjp30ib" path="res://Assets/player/player.png" id="2_rxfkt"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_ytwj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_rxfkt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
