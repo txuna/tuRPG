@@ -57,6 +57,7 @@ var inventory = {
 	"consumption" : [
 		{
 			"prototype_id" : 1000, 
+			"count" : 1
 		}
 	], 
 	"etc" : [
@@ -152,3 +153,45 @@ func change_exp(value):
 # 전투 종료 팝업이 끝나면 체력바 HUD표시가능하게 false설정
 func get_damage(damage):
 	change_hp(-damage, false)
+
+
+# 인벤토리 아이템 사용 
+#- 소비 아이템의 경우 갯수를 줄이고
+#- 장비 아이템의 경우 기존 착용 장비 확인
+func use_item(item):
+	var prototype = Equipment.prototype[item.prototype_id]
+	if prototype.info.inventory_type == Equipment.CONSUMPTION:
+		if item.count < 1:
+			return
+		use_consumption(item, prototype)
+		
+	elif prototype.info.inventory_type == Equipment.EQUIPMENT:
+		pass
+		
+	return 
+	
+	
+func use_consumption(item, prototype):
+	for state_name in prototype.state:
+		if state_name == "current_hp":
+			change_hp(prototype.state[state_name])
+		else:
+			state[state_name] += prototype.state[state_name]
+	
+	item.count-=1
+	# 해당 아이템 삭제
+	if item.count <= 0:
+		inventory.consumption.erase(item)
+	
+	var inventory_node = get_node("/root/MainView/InventoryPopup") 
+	inventory_node._on_update_inventory()
+		
+
+
+
+
+
+
+
+
+

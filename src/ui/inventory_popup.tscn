@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca35jt2v4363h"]
+[gd_scene load_steps=9 format=3 uid="uid://ca35jt2v4363h"]
 
 [ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_pwkex"]
 [ext_resource type="Script" path="res://src/ui/inventory_popup.gd" id="1_to25t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="3_17plf"]
 [ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="4_vueqr"]
 [ext_resource type="Texture2D" uid="uid://cdo0nq1b2sca4" path="res://Assets/ui/inventory_slot.png" id="6_taaf4"]
+[ext_resource type="FontFile" uid="uid://b2uvqw7dwjp80" path="res://Assets/fonts/NanumBarunpenR.ttf" id="7_anjjw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38asp"]
 bg_color = Color(0.894118, 0.894118, 0.894118, 1)
@@ -81,6 +82,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect1/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect2" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_taaf4")
@@ -89,6 +102,18 @@ texture = ExtResource("6_taaf4")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect2/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -99,6 +124,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect3/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect4" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_taaf4")
@@ -107,6 +144,18 @@ texture = ExtResource("6_taaf4")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect4/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect5" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -117,6 +166,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect5/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect6" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_taaf4")
@@ -125,6 +186,18 @@ texture = ExtResource("6_taaf4")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect6/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect7" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -135,6 +208,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect7/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect8" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_taaf4")
@@ -143,6 +228,18 @@ texture = ExtResource("6_taaf4")
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect8/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect9" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -153,6 +250,18 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect9/TextureRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect10" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_taaf4")
@@ -162,275 +271,17 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="TextureRect11" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect11"]
+[node name="CountLabel" type="Label" parent="TextureRect/ScrollContainer/GridContainer/TextureRect10/TextureRect"]
 layout_mode = 0
+offset_left = 39.0
+offset_top = 40.0
 offset_right = 64.0
 offset_bottom = 64.0
-
-[node name="TextureRect12" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect12"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect13" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect13"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect14" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect14"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect15" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect15"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect16" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect16"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect17" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect17"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect18" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect18"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect19" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect19"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect20" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect20"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect21" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect21"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect22" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect22"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect23" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect23"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect24" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect24"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect25" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect25"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect26" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect26"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect27" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect27"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect28" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect28"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect29" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect29"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect30" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect30"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect31" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect31"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect32" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect32"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect33" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect33"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect34" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect34"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect35" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect35"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect36" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect36"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect37" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect37"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect38" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect38"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect39" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect39"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="TextureRect40" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_taaf4")
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect/ScrollContainer/GridContainer/TextureRect40"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_anjjw")
+text = "32"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BtnControl" type="Control" parent="."]
 layout_mode = 3

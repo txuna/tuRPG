@@ -42,12 +42,18 @@ func _on_etc_btn_pressed():
 func init_inventory():
 	for node in inventory_container.get_children():
 		node.get_node("TextureRect").texture = null
+		node.get_node("TextureRect").get_node("CountLabel").text = ""
 		# 시그널 연결 끊기 
 		if node.get_node("TextureRect").gui_input.is_connected(_on_open_detail):
 			node.get_node("TextureRect").gui_input.disconnect(_on_open_detail)
 
 
+func _on_update_inventory():
+	if visible:
+		_on_open_inventory()
 
+
+# 소비아이템이나 기타아이템의 경우 count도 추가
 func _on_open_inventory():
 	visible = true
 	init_inventory()
@@ -60,6 +66,9 @@ func _on_open_inventory():
 		var image = Equipment.prototype[prototype_id].info.image
 		var node = texture_list[index].get_node("TextureRect")
 		node.texture = ImageTexture.create_from_image(image)
+		# 소비아이템이거나 기타아이템의 경우 갯수 표시
+		if not inventory_type == Equipment.EQUIPMENT:
+			node.get_node("CountLabel").text = str(inventory_content[index].count)
 		# 시그널 연결
 		node.gui_input.connect(_on_open_detail.bind(item))
 	
@@ -70,6 +79,15 @@ func _on_open_detail(event: InputEvent, item):
 			var detail_popup = load("res://src/ui/detail_popup.tscn").instantiate() 
 			get_parent().add_child(detail_popup)
 			detail_popup._on_open_detail_popup(item)
+		# item use !
+		elif event.double_click:
+			# 아이템 타입이 기타 아이템이라면 패스
+			var item_type = Equipment.prototype[item.prototype_id].info.inventory_type
+			if item_type == Equipment.ETC:
+				return 
+			PlayerState.use_item(item)
+	return 
+		
 
 
 func _on_toggle_inventory():
