@@ -12,7 +12,11 @@ var MAGIC = 2
 # 플레이어가 선택한 템을 여기로 인벤토리에서 옮기기 
 var player_equipment = {
 	Equipment.WEAPON : {
-		
+			"prototype_id" : 0, 
+			# 추가 능력치
+			"additional_state" : {
+				"damage" : 10,
+			}
 	},
 	Equipment.HAT : {
 		
@@ -49,7 +53,8 @@ var inventory = {
 				"damage" : 10,
 				"armor" : 5,
 				"critical_damage" : 7,
-				"critical_percent" : 7
+				"critical_percent" : 7,
+				"max_hp" : 100
 			}
 		}
 	], 
@@ -65,32 +70,42 @@ var inventory = {
 	]
 }
 
-# 장비 스탯은 어떻게? + 플러스 값? 
-# 기본 스탯 + equipment.armor.sum_damage 프로토타입 느낌으로 ? 
-var state = {}
+# 최종 스탯
+# 기본스탯 + 무기 스탯 
+var state = {
+	"current_hp" : 100, 					# 현재 체력
+	"max_exp" : 10,							# 최대 경험치
+	"current_exp" : 3, 						# 현재 경험치 
+	"level" : 1,							# 현재 레벨,
+	"current_region_id" : 0,				# 플레이어 현재 위치 
+	"damage_type" : PHYSICAL,				# 데미지 타입
+	"name" : "player", 
+	"coin" : 10,
+}
+
+# 기본 스탯(플레이어가 투자 가능) + 물약 
+var basic_state = {
+	"damage" : 10,							# 공격력(마력) 
+	"critical_percent" : 10.0,				# 크리티컬 확률 
+	"critical_damage" : 30.0,				# 크리티컬 데미지
+	"armor" : 10.0,							# 방어력
+	"magic_resistance" : 10, 				# 마법저항력
+	"avoidance_rate" : 10.0, 				# 회피율
+	"speed" : 10.0, 						# 스피드 
+	"final_damage" : 15.0, 					# 최종데미지 
+	"armor_penetration" : 10.0, 			# 방관
+	"magic_resistance_penetration" : 10.0,	# 마관
+	"max_hp" : 100,							# 최대 체력 
+}
 
 func _ready():
-	state = {
-		"damage" : 10 + get_equipment_value("damage"), 						# 공격력(마력) 
-		"critical_percent" : 10.0 + get_equipment_value("critical_percent"),# 크리티컬 확률 
-		"critical_damage" : 30.0 + get_equipment_value("critical_damage"),	# 크리티컬 데미지
-		"armor" : 10.0 + get_equipment_value("armor"),						# 방어력
-		"magic_resistance" : 10 + get_equipment_value("magic_resistance"), 	# 마법저항력
-		"avoidance_rate" : 10.0 + get_equipment_value("avoidance_rate"), 	# 회피율
-		"speed" : 10.0 + get_equipment_value("speed"), 						# 스피드 
-		"final_damage" : 15.0 + get_equipment_value("final_damage"), 		# 최종데미지 
-		"armor_penetration" : 10.0 + get_equipment_value("armor_penetration"), 						# 방관
-		"magic_resistance_penetration" : 10.0 + get_equipment_value("magic_resistance_penetration"), # 마관
-		"max_hp" : 100 + get_equipment_value("max_hp"),	# 최대 체력 
-		"current_hp" : 100, 							# 현재 체력
-		"max_exp" : 10,									# 최대 경험치
-		"current_exp" : 3, 								# 현재 경험치 
-		"level" : 1,									# 현재 레벨,
-		"current_region_id" : 0,						# 플레이어 현재 위치 
-		"damage_type" : PHYSICAL,						# 데미지 타입
-		"name" : "player", 
-		"coin" : 10,
-	}
+	calculate_state_from_equipment()
+	
+# 착용한 장비를 기반으로 스탯 재 설정
+func calculate_state_from_equipment():
+	for state_name in basic_state:
+		state[state_name] = basic_state[state_name] + get_equipment_value(state_name)
+			
 
 # 착용한 장비의 방어력만 가지고옴
 func get_equipment_value(_type):
@@ -166,7 +181,7 @@ func use_item(item):
 		use_consumption(item, prototype)
 		
 	elif prototype.info.inventory_type == Equipment.EQUIPMENT:
-		pass
+		wear_equipment(item, prototype)
 		
 	return 
 	
@@ -176,22 +191,49 @@ func use_consumption(item, prototype):
 		if state_name == "current_hp":
 			change_hp(prototype.state[state_name])
 		else:
-			state[state_name] += prototype.state[state_name]
+			basic_state[state_name] += prototype.state[state_name]
 	
 	item.count-=1
 	# 해당 아이템 삭제
 	if item.count <= 0:
 		inventory.consumption.erase(item)
 	
+	# 추후 상태창도 업데이트 
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
 		
 
+# 기존에 착용중이던 장비 확인 및 백업 
+# 체력바 같은 경우를 위해 hud_init + inventory update 
+# 최대 최력이 현재체력보다 작아질 경우 현재 체력 체력체력으로 설정 
+# 착용한 무기의 속성 부여
+func wear_equipment(item, prototype):
+	var section = prototype.info.section 
+	var origin_equipment = null 
+	# 현재 착용중이라면 
+	if not player_equipment[section].is_empty():
+		# 기존 장비 백업
+		origin_equipment = player_equipment[section]
+	
+	# 새로운 장비 착용
+	player_equipment[section] = item 
+	# 착용하려는 아이템 인벤토리에서 삭제 
+	inventory.equipment.erase(item)
+	# 기존장비 존재한다면 인벤토리에 넣기 
+	if origin_equipment != null:
+		inventory.equipment.append(origin_equipment)
 
+	# 착용한 상태에서 스탯 재설정
+	calculate_state_from_equipment()
+	# 무기의 데미지 타입 설정 
+	state.damage_type = prototype.info.type
 
-
-
-
-
-
+	# 최대체력이 현재 체력보다 작다면 현재체력을 최대체력으로 설정 
+	if state.current_hp > state.max_hp:
+		state.current_hp = state.max_hp
+		
+	# hud와 인벤토리 업데이트 - 추후 상태창도 
+	var inventory_node = get_node("/root/MainView/InventoryPopup") 
+	inventory_node._on_update_inventory()
+	init_hud()
 
