@@ -56,12 +56,18 @@ var inventory = {
 				"critical_percent" : 7,
 				"max_hp" : 100
 			}
+		},
+		{
+			"prototype_id" : 1100, 
+			"additional_state" : {
+				
+			}
 		}
 	], 
 	# 장비아이템이 아닌경우 additional_state이 없다
 	"consumption" : [
 		{
-			"prototype_id" : 1000, 
+			"prototype_id" : 1800, 
 			"count" : 1
 		}
 	], 
@@ -182,7 +188,6 @@ func use_item(item):
 		
 	elif prototype.info.inventory_type == Equipment.EQUIPMENT:
 		wear_equipment(item, prototype)
-		
 	return 
 	
 	
@@ -236,4 +241,32 @@ func wear_equipment(item, prototype):
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
 	init_hud()
+	print(state)
+
+
+func take_off_equipment(item):
+	var id = item.prototype_id 
+	var prototype = Equipment.prototype[id] 
+	var section = prototype.info.section 
+	
+	player_equipment[section] = {} 
+	calculate_state_from_equipment()
+	inventory.equipment.append(item)
+	
+	if state.current_hp > state.max_hp:
+		state.current_hp = state.max_hp
+		
+	# 무기가 없는 상태는 물리타입 
+	state.damage_type = PHYSICAL
+	var inventory_node = get_node("/root/MainView/InventoryPopup") 
+	inventory_node._on_update_inventory()
+	init_hud()
+
+
+
+
+
+
+
+
 

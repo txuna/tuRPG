@@ -128,16 +128,30 @@ var prototype = {
 		"state" : {
 			"damage" : 7, 
 			"armor" : 7, 
-			"critical_percent" : 3
+			"critical_percent" : 3 
 		}
 	},
 	200 : {
 		
 	},
-	
-	1000 : {
+	1100 : {
 		"info" :{ 
-			"id" : 1000, 
+			"id" : 1100, 
+			"name" : "허름한 셔츠",
+			"image" : Image.load_from_file("res://Assets/equipment/armor/shirt/shabby_shirt.png"), 
+			"type" : PHYSICAL,
+			"section" : SHIRT, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "허르한 셔츠이다. 곧 찢어질듯 하다.",
+		},
+		"state" : {
+			"max_hp" : 10, 
+			"armor" : 15
+		}
+	},
+	1800 : {
+		"info" :{ 
+			"id" : 1800, 
 			"name" : "HP회복 포션",
 			"image" : Image.load_from_file("res://Assets/consumption/hp_potion1.png"), 
 			"inventory_type" : CONSUMPTION, 
@@ -146,5 +160,5 @@ var prototype = {
 		"state" : {
 			"current_hp" : 50
 		}
-	}
+	},
 }
