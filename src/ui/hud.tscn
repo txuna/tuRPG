@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx1lvf1n0gepe"]
+[gd_scene load_steps=6 format=3 uid="uid://c0315odvlf2en"]
 
 [ext_resource type="Script" path="res://Src/ui/hud.gd" id="1_cyo5y"]
 [ext_resource type="Texture2D" uid="uid://fs5wxjag78hf" path="res://Assets/ui/bar.png" id="1_rncqn"]
@@ -73,3 +73,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_0n7fh")
 theme_override_font_sizes/font_size = 24
 text = "Lv. 1"
+
+[node name="CoinLabel" type="Label" parent="."]
+offset_left = 383.0
+offset_top = 89.0
+offset_right = 470.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0n7fh")
+theme_override_font_sizes/font_size = 24
+text = "320$"
+horizontal_alignment = 1
+vertical_alignment = 1

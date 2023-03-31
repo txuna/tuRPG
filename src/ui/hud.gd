@@ -6,13 +6,14 @@ extends CanvasLayer
 @onready var hp_label = $HpValueLabel
 @onready var exp_label = $ExpValueLabel
 @onready var level_label = $LevelLabel
+@onready var coin_label = $CoinLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerState.set_hp_event.connect(_on_set_hp)
 	PlayerState.set_exp_event.connect(_on_set_exp)
 	PlayerState.set_level_event.connect(_on_set_level)
-
+	PlayerState.set_coin_event.connect(_on_set_coin)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,5 +55,10 @@ func _on_set_level():
 		"level" : str(level)
 	})
 	
-	
-	
+
+func _on_set_coin():
+	var player_state = PlayerState.state
+	var coin = player_state.coin 
+	coin_label.text = "{coin}$".format({
+		"coin" : str(coin)
+	})

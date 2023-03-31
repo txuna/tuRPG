@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvqc6bcs5x8ce"]
+
+[ext_resource type="Script" path="res://src/ui/detail_popup.gd" id="1_kr6u5"]
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="2_lubv4"]
+[ext_resource type="FontFile" uid="uid://bv3gahc7tukwm" path="res://Assets/fonts/NanumBarunpenB.ttf" id="3_qpinc"]
+[ext_resource type="Texture2D" uid="uid://cdo0nq1b2sca4" path="res://Assets/ui/inventory_slot.png" id="4_ad5lv"]
+[ext_resource type="Texture2D" uid="uid://dk1oj4yocym21" path="res://Assets/equipment/weapon/one_hand/rusty_sword.png" id="5_yggpg"]
+[ext_resource type="Script" path="res://src/ui/StateControl.gd" id="6_7fiy8"]
+[ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="6_qrl52"]
+[ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="7_o4saq"]
+
+[node name="DetailPopup" type="CanvasLayer"]
+script = ExtResource("1_kr6u5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 53.0
+offset_top = 108.0
+offset_right = 465.0
+offset_bottom = 560.0
+texture = ExtResource("2_lubv4")
+
+[node name="ItemNameLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 102.0
+offset_top = 55.0
+offset_right = -96.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qpinc")
+theme_override_font_sizes/font_size = 24
+text = "녹슨 검"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 105.0
+offset_right = 133.0
+offset_bottom = 169.0
+texture = ExtResource("4_ad5lv")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_yggpg")
+
+[node name="CommentLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 138.0
+offset_top = 105.0
+offset_right = -51.0
+offset_bottom = 167.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qpinc")
+theme_override_font_sizes/font_size = 16
+text = "여행자의 검이 300년 이상의 긴 세월을 정통을 겪은 녹이 슨 검이다. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SectionLabel" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 68.0
+offset_top = 178.0
+offset_right = -159.0
+offset_bottom = 204.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qpinc")
+theme_override_font_sizes/font_size = 16
+text = "아이템 분류 : 한손 검(물리)"
+vertical_alignment = 1
+
+[node name="StateControl" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 206.0
+offset_right = 335.0
+offset_bottom = 394.0
+script = ExtResource("6_7fiy8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 204.0
+offset_right = 347.0
+offset_bottom = 256.0
+
+[node name="ExitBtn" type="TextureButton" parent="TextureRect"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 55.0
+offset_right = 358.0
+offset_bottom = 87.0
+texture_normal = ExtResource("6_qrl52")
+texture_pressed = ExtResource("7_o4saq")
+
+[connection signal="pressed" from="TextureRect/ExitBtn" to="." method="_on_exit_btn_pressed"]

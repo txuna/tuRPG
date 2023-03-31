@@ -12,6 +12,7 @@ func _process(delta):
 
 
 # 이미 연결된 점이라면 패스하기
+# 맵이 움직일 때 마다 다시 그려야 하나 
 func _draw():
 	for key in Global.region_info:
 		var region = Global.region_info[key]

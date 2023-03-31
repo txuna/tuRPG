@@ -1,6 +1,5 @@
-extends Control
+extends CanvasLayer
 
-var test = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +11,7 @@ func _process(delta):
 	pass
 
 
-func _on_keep_start_btn_pressed():
-	pass # Replace with function body.
-
-
-func _on_new_start_btn_pressed():
-	get_tree().change_scene_to_file("res://src/main/main_view.tscn")
+# 기존 이어하기 데이터 파괴
+func _on_restart_btn_pressed():
+	queue_free()
+	get_tree().change_scene_to_file("res://src/ui/title.tscn")

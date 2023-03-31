@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cakyn3hetrj5q"]
+[gd_scene load_steps=10 format=3 uid="uid://wxv2fc70dyl2"]
 
 [ext_resource type="Script" path="res://Src/ui/popup.gd" id="1_qe4y2"]
 [ext_resource type="Texture2D" uid="uid://c6c0s462rb3uj" path="res://Assets/ui/btn/adventure_btn_normal.png" id="1_xtwfj"]
@@ -10,38 +10,28 @@
 [ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="8_0a0wq"]
 [ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="9_w8ycb"]
 
-[node name="Popup" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -120.0
-offset_bottom = -480.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Popup" type="CanvasLayer"]
 script = ExtResource("1_qe4y2")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -36.0
-offset_top = -29.0
-offset_right = 324.0
-offset_bottom = 331.0
+offset_left = 5.0
+offset_top = 115.0
+offset_right = 365.0
+offset_bottom = 475.0
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_utmbo")
 
 [node name="AdventureBtn" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 313.0
-offset_right = 429.0
-offset_bottom = 413.0
+offset_left = 110.0
+offset_top = 457.0
+offset_right = 470.0
+offset_bottom = 557.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("1_xtwfj")
 texture_pressed = ExtResource("2_cl2sr")
 
 [node name="Bar" type="Sprite2D" parent="."]
-position = Vector2(199, 61)
+position = Vector2(240, 205)
 scale = Vector2(1.09167, 1.36667)
 texture = ExtResource("3_np4i4")
 
@@ -62,28 +52,25 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RegionImage" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 77.0
-offset_top = 101.0
-offset_right = 317.0
-offset_bottom = 261.0
+offset_left = 118.0
+offset_top = 245.0
+offset_right = 358.0
+offset_bottom = 405.0
 
 [node name="MonsterInfoLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 258.0
-offset_right = 260.0
-offset_bottom = 303.0
+offset_left = 176.0
+offset_top = 402.0
+offset_right = 301.0
+offset_bottom = 447.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_althl")
 theme_override_font_sizes/font_size = 32
 
 [node name="ExitBtn" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 41.0
-offset_right = 368.0
-offset_bottom = 81.0
+offset_left = 369.0
+offset_top = 185.0
+offset_right = 409.0
+offset_bottom = 225.0
 texture_normal = ExtResource("8_0a0wq")
 texture_pressed = ExtResource("9_w8ycb")
 

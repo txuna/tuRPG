@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://pgqm8cq28t16"]
+[gd_scene load_steps=5 format=3 uid="uid://b45p3ihlye4tp"]
 
 [ext_resource type="Script" path="res://Src/ui/region_point.gd" id="1_b2fhp"]
-[ext_resource type="Texture2D" uid="uid://bsbawlx854d44" path="res://Assets/map/region.png" id="1_gn60t"]
 [ext_resource type="Texture2D" uid="uid://b2kxo1kwcoot3" path="res://Assets/map/region_active.png" id="2_6abt0"]
+[ext_resource type="Texture2D" uid="uid://xwd002nosbfi" path="res://Assets/map/region_disable.png" id="3_a68cx"]
+[ext_resource type="FontFile" uid="uid://b2uvqw7dwjp80" path="res://Assets/fonts/NanumBarunpenR.ttf" id="4_m0sft"]
 
 [node name="RegionPoint" type="Node2D"]
 script = ExtResource("1_b2fhp")
@@ -15,9 +16,20 @@ offset_right = 32.0
 offset_bottom = 32.0
 texture_normal = ExtResource("2_6abt0")
 texture_pressed = ExtResource("2_6abt0")
-texture_disabled = ExtResource("1_gn60t")
+texture_disabled = ExtResource("3_a68cx")
 
 [node name="CenterPosition" type="Marker2D" parent="."]
 position = Vector2(16.5, 17)
+
+[node name="CommentLabel" type="Label" parent="."]
+offset_left = -7.0
+offset_top = 30.0
+offset_right = 43.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m0sft")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="RegionBtn" to="." method="_on_region_btn_pressed"]

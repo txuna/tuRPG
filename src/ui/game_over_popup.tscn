@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdj5gkwuhw51y"]
+
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_o7q63"]
+[ext_resource type="Script" path="res://src/ui/game_over_popup.gd" id="1_v341o"]
+[ext_resource type="Texture2D" uid="uid://3o2os7ymq1yb" path="res://Assets/ui/btn/ok_btn_normal.png" id="2_s187s"]
+[ext_resource type="Texture2D" uid="uid://b3hdd0i2rfnrq" path="res://Assets/ui/btn/ok_btn_pressed.png" id="3_d744x"]
+[ext_resource type="Texture2D" uid="uid://bspwe2ufohwq0" path="res://Assets/ui/game_over.png" id="5_poeuu"]
+
+[node name="GameOverPopup" type="CanvasLayer"]
+script = ExtResource("1_v341o")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_o7q63")
+
+[node name="RestartBtn" type="TextureButton" parent="Control/Background"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 256.0
+offset_right = 449.0
+offset_bottom = 356.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_s187s")
+texture_pressed = ExtResource("3_d744x")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 37.0
+offset_right = 350.0
+offset_bottom = 237.0
+texture = ExtResource("5_poeuu")
+
+[connection signal="pressed" from="Control/Background/RestartBtn" to="." method="_on_restart_btn_pressed"]

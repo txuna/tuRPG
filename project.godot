@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://src/Global.gd"
 PlayerState="*res://src/PlayerState.gd"
+Equipment="*res://src/Equipment.gd"
 
 [display]
 

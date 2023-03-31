@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c48yaw2v0kljq" path="res://Assets/map/mountain.png" id="4_ds0lv"]
 [ext_resource type="Texture2D" uid="uid://bcc3go34q2c5h" path="res://Assets/map/mountain3.png" id="5_6aeu1"]
 [ext_resource type="Texture2D" uid="uid://5866xuxeci45" path="res://Assets/map/mountain2.png" id="6_lrjep"]
-[ext_resource type="PackedScene" uid="uid://pgqm8cq28t16" path="res://src/ui/region_point.tscn" id="7_2y67e"]
-[ext_resource type="Script" path="res://src/Map/DrawControl.gd" id="9_fg12f"]
+[ext_resource type="PackedScene" uid="uid://b45p3ihlye4tp" path="res://src/ui/region_point.tscn" id="7_2y67e"]
+[ext_resource type="PackedScene" uid="uid://bv5pexocjnowf" path="res://src/ui/player.tscn" id="10_hy4xc"]
 
 [node name="WorldMap" type="Control"]
 layout_mode = 3
@@ -167,8 +167,12 @@ region_id = 2
 position = Vector2(588, 901)
 region_id = 3
 
-[node name="DrawControl" type="Control" parent="ColorRect"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("9_fg12f")
+[node name="RegionPoint5" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(819, 1016)
+region_id = 4
+
+[node name="LineControl" type="Node2D" parent="ColorRect"]
+
+[node name="PlayerControl" type="Node2D" parent="ColorRect"]
+
+[node name="Player" parent="ColorRect/PlayerControl" instance=ExtResource("10_hy4xc")]

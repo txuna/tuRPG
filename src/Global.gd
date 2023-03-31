@@ -9,6 +9,21 @@ var PLAYER = 3
 
 var DEFENSE_CONSTANT = 100
 
+const comment_state_string = {
+	"damage" : "공격력", 
+	"critical_percent" : "크리티컬 확률", 
+	"critical_damage" : "크리티컬 데미지", 
+	"armor" : "방어력", 
+	"magic_resistance" : "마법 저항력", 
+	"avoidance_rate" : "회피율", 
+	"speed" : "스피드", 
+	"final_damage" : "최종 데미지", 
+	"armor_penetration" : "물리 관통력", 
+	"magic_resistance_penetration" : "마법 관통력", 
+	"max_hp" : "최대 체력", 
+	"current_hp" : "체력 회복"
+}
+
 var village_info = {
 	0 : {
 		
@@ -67,7 +82,15 @@ var region_info = {
 		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,
-		"connected" 	: [0, 1]
+		"connected" 	: [0, 1, 4]
+	},
+	4 : {
+		"id"			: 4,
+		"region_name" 	: "페리들판",
+		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,
+		"connected" 	: [3]
 	}
 }
 
