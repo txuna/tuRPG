@@ -8,6 +8,7 @@ signal set_coin_event
 var PHYSICAL = 1 
 var MAGIC = 2
 	
+const MAX_INVENTORY = 8
 
 # 플레이어가 선택한 템을 여기로 인벤토리에서 옮기기 
 var player_equipment = {
@@ -194,6 +195,11 @@ func use_item(item):
 func use_consumption(item, prototype):
 	for state_name in prototype.state:
 		if state_name == "current_hp":
+			# 이미 체력이 가득찬 상태일 경우
+			if state.current_hp == state.max_hp:
+				get_node("/root/MainView").open_alert_popup(Global.ALREADY_FULL_HP)
+				return 
+				
 			change_hp(prototype.state[state_name])
 		else:
 			basic_state[state_name] += prototype.state[state_name]
@@ -242,8 +248,13 @@ func wear_equipment(item, prototype):
 	inventory_node._on_update_inventory()
 	init_hud()
 
-
+# 인벤토리 크기 확인
 func take_off_equipment(item):
+	# 맥시멈 인벤토리 사이즈라면
+	if inventory.equipment.size() >= MAX_INVENTORY:
+		get_node("/root/MainView").open_alert_popup(Global.NOT_ENOUGH_INVENTORY)
+		return 
+		
 	var id = item.prototype_id 
 	var prototype = Equipment.prototype[id] 
 	var section = prototype.info.section 

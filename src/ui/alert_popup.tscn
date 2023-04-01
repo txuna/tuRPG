@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://d15kn85m20vqm"]
+
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_d6jcn"]
+[ext_resource type="Script" path="res://src/ui/alert_popup.gd" id="1_ku6vx"]
+[ext_resource type="Texture2D" uid="uid://3o2os7ymq1yb" path="res://Assets/ui/btn/ok_btn_normal.png" id="2_lhqs1"]
+[ext_resource type="Texture2D" uid="uid://b3hdd0i2rfnrq" path="res://Assets/ui/btn/ok_btn_pressed.png" id="3_lhmf5"]
+[ext_resource type="FontFile" uid="uid://dn1d737hrtc4" path="res://Assets/fonts/NanumSquareRoundB.ttf" id="4_k25ap"]
+
+[node name="AlertPopup" type="CanvasLayer"]
+script = ExtResource("1_ku6vx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 243.0
+offset_right = 435.0
+offset_bottom = 602.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -68.0
+offset_top = -20.0
+offset_right = 414.0
+offset_bottom = 219.0
+texture = ExtResource("1_d6jcn")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 168.0
+offset_right = 531.0
+offset_bottom = 268.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_lhqs1")
+texture_pressed = ExtResource("3_lhmf5")
+
+[node name="ContentLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 70.0
+offset_right = 409.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k25ap")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 32.0
+offset_right = 382.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k25ap")
+theme_override_font_sizes/font_size = 20
+text = "[알림]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Control/TextureRect/TextureButton" to="." method="_on_texture_button_pressed"]

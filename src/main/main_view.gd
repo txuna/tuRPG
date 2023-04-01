@@ -155,8 +155,11 @@ func get_reward_from_monster(monster_id):
 	PlayerState.get_exp(reward.exp)
 
 
-
-
+func open_alert_popup(msg):
+	var msg_string = Global.comment_alert[msg]
+	var alert_node = load("res://src/ui/alert_popup.tscn").instantiate() 
+	add_child(alert_node)
+	alert_node.set_content_text(msg_string)
 
 
 
