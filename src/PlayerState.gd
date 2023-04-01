@@ -105,6 +105,20 @@ var basic_state = {
 	"max_hp" : 100,							# 최대 체력 
 }
 
+var additional_base_state = {
+	"damage" : [1.0, 5.0], 
+	"critical_percent" : [0.5, 2.0], 
+	"critical_damage" : [0.35, 2.0], 
+	"armor" : [5.0, 25.0], 
+	"magic_resistance" : [5.0, 25.0],
+	"avoidance_rate" : [0.25, 2.0],
+	"speed" : [0.5, 3.5], 
+	"final_damage" : [0.5, 2.0],
+	"armor_penetration" : [0.75, 3.0],
+	"magic_resistance_penetration" : [0.75, 3.0], 
+	"max_hp" : [5.0, 25.0]
+}
+
 func _ready():
 	calculate_state_from_equipment()
 	
@@ -307,7 +321,7 @@ func check_already_has_item(id, inventory_type):
 		if item.prototype_id == id:
 			return true
 			
-	return false
+	return false	
 	
 
 func get_item(id, inventory_type):
@@ -316,12 +330,8 @@ func get_item(id, inventory_type):
 		return -1
 
 	if inventory_type == "equipment":
-		var item = {
-			"prototype_id" : id, 
-			"additional_state" : {
-				
-			}
-		}
+		var option_name = determine_additional_state()
+		var item = set_additional_state(option_name, id)
 		inventory[inventory_type].append(item)
 		
 	# 이미 해당 아이템을 가지고 있다면(소비, 기타)
@@ -349,5 +359,46 @@ func get_inventory_item_index_from_id(id, inventory_type):
 	
 	return -1 
 
-
+func determine_additional_state():
+	randomize() 
+	var percent = randf_range(0.00, 100.00)
+	for option_name in Equipment.additional_option:
+		var option_percent = Equipment.additional_option[option_name]
+		if option_percent >= percent:
+			return option_name
+			
+	return Equipment.ZERO_OPTION
+	
+	
+func set_additional_state(option_name, id):
+	if option_name == Equipment.ZERO_OPTION:
+		return {
+			"prototype_id" : id, 
+			"additional_state" : {}
+		}
+	
+	var additional_state = {
+		
+	}
+	for state_name in additional_base_state:
+		randomize()
+		# 스탯 뽑기 실패 50확률 
+		if randi_range(0, 100) <= 50:
+			continue
+		
+		var plus_state = additional_base_state[state_name]
+		var value = snapped(randf_range(plus_state[0], plus_state[1]) * option_name, 0.01)
+		if state_name in ["damage", "max_hp"]:
+			value = int(value)
+		additional_state[state_name] = value 
+		
+	return {
+		"prototype_id" : id, 
+		"additional_state" : additional_state
+		}
+	
+	
+	
+	
+	
 

@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var state_control = $TextureRect/StateControl 
 @onready var item_texture = $TextureRect/TextureRect/TextureRect2
 @onready var item_name_label = $TextureRect/ItemNameLabel
-@onready var state_container = $TextureRect/VBoxContainer
+@onready var state_container = $TextureRect/ScrollContainer/VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,6 +60,9 @@ func _on_open_detail_popup(item):
 			})
 		# 추가 능력치가 있다면
 		else:
+			# 해당 능력치가 없다면
+			if not item.additional_state.has(state_name):
+				continue
 			var plus_value = item.additional_state[state_name]
 			label.text = "{state_name} : {value} + ({plus_value})".format({
 				"state_name" : Global.comment_state_string[state_name], 

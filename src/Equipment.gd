@@ -24,12 +24,31 @@ const CLOAK = 9
 const PHYSICAL = 1 
 const MAGIC = 2
 
+#enum {ZERO_OPTION, FIRST_OPTION, SECOND_OPTION, THIRD_OPTION, FOURTH_OPTION, FIFTH_OPTION, SIXTH_OPTION, SEVENTH_OPTION}
+const ZERO_OPTION = 0 
+const SEVENTH_OPTION = 1 
+const SIXTH_OPTION = 2
+const FIFTH_OPTION = 3
+const FOURTH_OPTION = 4
+const THIRD_OPTION = 5
+const SECOND_OPTION = 6
+const FIRST_OPTION = 7
+
+const additional_option = {
+	FIRST_OPTION : 0.1, 
+	SECOND_OPTION : 1.5, 
+	THIRD_OPTION : 3.5, 
+	FOURTH_OPTION : 10.5,
+	FIFTH_OPTION : 15.0, 
+	SIXTH_OPTION : 30.0, 
+	SEVENTH_OPTION : 60.0, 
+	ZERO_OPTION : 100.0
+}
+
 const comment_damage_type_string = {
 	PHYSICAL : "물리", 
 	MAGIC : "마법"
 }
-
-
 
 const comment_type_string = {
 	HAT : "모자",
