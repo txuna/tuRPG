@@ -29,7 +29,20 @@ var village_info = {
 		
 	}
 }
-# id, level, name, 
+# 장비아이템의 경우 additional_state 랜덤으로 결정 
+# 몬스터의 레벨에 따라 1 ~ 5티어 추옵에서 확률 결정 
+# item은 얻을 확률 -> 0 ~ 10000까지 즉, 0.01확률까지 고려
+var monster_spoil = {
+	0 : {
+		"exp" : 13, 
+		"coin" : 15, 
+		"item" : {
+			0 : 7000, 	# 녹슨 검 
+			1800 : 1000 # 체력회복 포션(50)
+		}
+	}
+}
+# id, level, name,
 var monster_info = {
 	0 : {
 		"id" : 0, 
@@ -57,7 +70,7 @@ var region_info = {
 		"region_name" 	: "페리마을",
 		"image" 		: Image.load_from_file("res://Assets/map/village.png"), 
 		"type"			: VILLAGE,
-		"type_id"		: 0,
+		"type_id"		: 0,		
 		"connected" 	: [1, 3]
 	},
 	1 : {
@@ -65,7 +78,7 @@ var region_info = {
 		"region_name" 	: "페리호수",
 		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
-		"type_id"		: 0,
+		"type_id"		: 0,		#몬스터 ID
 		"connected" 	: [0, 2, 3]
 	}, 
 	2 : {

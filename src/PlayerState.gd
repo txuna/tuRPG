@@ -241,7 +241,6 @@ func wear_equipment(item, prototype):
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
 	init_hud()
-	print(state)
 
 
 func take_off_equipment(item):
@@ -263,6 +262,32 @@ func take_off_equipment(item):
 	init_hud()
 
 
+func get_coin(value):
+	state.coin += value 
+	emit_signal("set_coin_event")
+
+
+# 경험치를 많이 받아도 다음레벨의 -1 까지획득 가능 
+# 레벨업시 경험치 증가률은 1.5 
+# 레벨업시 스탯포인트 3개 부여
+func get_exp(value):
+	# 레벨 경험치를 초과할 경우 
+	if state.current_exp + value >= state.max_exp:
+		state.level += 1
+		# 경험치 차액만큼 제거 및 상한선 설정 
+		value = value - (state.max_exp - state.current_exp)
+		state.current_exp = 0 
+		state.max_exp = int(state.max_exp * 1.5)
+		# 다음 레벨업시에도 크다면 -1만큼 삭제 
+		if state.current_exp + value >= state.max_exp:
+			state.current_exp = state.max_exp - 1
+		else:
+			state.current_exp += value
+	else:
+		state.current_exp += value
+		
+	emit_signal("set_exp_event")
+	emit_signal("set_level_event")
 
 
 

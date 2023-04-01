@@ -55,6 +55,9 @@ func _on_combat_finished(region_id, win_flag):
 		
 	PlayerState.change_region(region_id)
 	world_map.trigger_region_from_player(region_id)
+	var monster_id = Global.region_info[region_id].type_id 
+	get_reward_from_monster(monster_id)
+	
 
 # 스피드를 기반으로 선공 확인 
 # 상대 한명이 hp가 0이 되기전까지 전투 시뮬레이션 
@@ -143,6 +146,13 @@ func calculate_damage(attacker, victim):
 	
 	return damage 
 	
+	
+func get_reward_from_monster(monster_id):
+	var reward = Global.monster_spoil[monster_id]
+	# 코인 증가 
+	PlayerState.get_coin(reward.coin)
+	# 경험치 증가
+	PlayerState.get_exp(reward.exp)
 
 
 
