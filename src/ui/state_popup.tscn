@@ -1,0 +1,350 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0p0scdqbn858"]
+
+[ext_resource type="Script" path="res://src/ui/state_popup.gd" id="1_njh5e"]
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="2_pann6"]
+[ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="3_wemrf"]
+[ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="4_bax0c"]
+[ext_resource type="FontFile" uid="uid://dn1d737hrtc4" path="res://Assets/fonts/NanumSquareRoundB.ttf" id="5_e4q14"]
+[ext_resource type="Texture2D" uid="uid://cdo0nq1b2sca4" path="res://Assets/ui/inventory_slot.png" id="6_3gvgu"]
+
+[node name="StatePopup" type="CanvasLayer"]
+script = ExtResource("1_njh5e")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 375.0
+offset_bottom = 371.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 52.0
+offset_right = 508.0
+offset_bottom = 660.0
+texture = ExtResource("2_pann6")
+
+[node name="TextureButton" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 75.0
+offset_right = 451.0
+offset_bottom = 107.0
+texture_normal = ExtResource("3_wemrf")
+texture_pressed = ExtResource("4_bax0c")
+
+[node name="Label" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 81.0
+offset_right = 324.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 24
+text = "캐릭터 상태창"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/TextureRect"]
+anchors_preset = 0
+offset_left = 78.0
+offset_top = 117.0
+offset_right = 456.0
+offset_bottom = 359.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/Control"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 378.0
+offset_bottom = 243.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/TextureRect/Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "공격력 : 1"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "크리티컬 확률 : 10%"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "크리티컬 데미지 : 10%"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "방어력 : 15"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "마법 저항력 : 10"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "회피율 : 15%"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "스피드 : 15"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "최종 데미지 : 15%"
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "물리 관통력 : 15"
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "마법 저항력 관통혁 : 17"
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "최대 체력 : 100"
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "현재 체력 : 70"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "레벨 : 1"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "현재 경험치 : 70"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "최대 경험치 : 100"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "코인 : 17$"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "스탯포인트 : 5"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "공격타입 : 물리"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "현재 지역 : 페리들판"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Control/TextureRect/Control/ScrollContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e4q14")
+theme_override_font_sizes/font_size = 16
+text = "이름 : Player"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 353.0
+offset_right = 509.0
+offset_bottom = 560.0
+texture = ExtResource("2_pann6")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/TextureRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -69.5
+offset_right = 180.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect4" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect7" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect8" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect9" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect9"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect10" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_3gvgu")
+
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect10"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
