@@ -23,9 +23,13 @@ func _on_region_btn_pressed():
 	if not Global.region_info.has(region_id):
 		return 
 		
+	# 이미 팝업이 열려있다면 무시 
+	if get_node_or_null("/root/MainView/Popup") != null:
+		return 
+	
 	var region_info = Global.region_info[region_id]
 	var popup_instance = load("res://src/ui/popup.tscn").instantiate()	
-	
+
 	popup_instance.init(region_info)
 	mainview_path.add_child(popup_instance)
 	#popup_instance.global_position = Vector2(50, 180)
