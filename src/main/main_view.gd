@@ -160,7 +160,6 @@ func get_reward_from_monster(monster_id):
 		# 아이템 프로토타입을 가지고옴
 		var prototype = Equipment.prototype[item_id]
 		var inventory_type = prototype.info.inventory_type
-		# 인벤토리 크기 확인
 		var percent = reward.item[item_id]
 		# 확률에 의하여 아이템이 뜨지 않은 상황
 		if percent < randf_range(0.00, 100.00):

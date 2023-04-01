@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var result_label = $ResultControl/ResultLabel
 @onready var progress_bar = $ProgressConrol/TextureProgressBar
 @onready var progress_value_label = $ProgressConrol/TextureProgressBar/ProgressBarValueLabel
+@onready var result_monster_texture = $ResultControl/MonsterTexture2
 
 signal combat_finish(_region_id, win_flag)
 
@@ -59,7 +60,8 @@ func enable_result():
 		result_label.text = "승리!"
 	else:
 		result_label.text = "패배!"
-	
+	result_monster_texture.texture = ImageTexture.create_from_image(Global.region_info[_region_id].image)
+
 
 func _on_ok_btn_pressed():
 	emit_signal("combat_finish", _region_id, win_flag)

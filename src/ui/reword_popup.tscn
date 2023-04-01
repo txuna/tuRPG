@@ -22,6 +22,7 @@ offset_bottom = 450.769
 texture = ExtResource("1_v3254")
 
 [node name="ProgressConrol" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.30769
@@ -89,37 +90,25 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_52dv8")
 texture_pressed = ExtResource("3_a2hty")
 
-[node name="Title" type="Label" parent="ResultControl"]
+[node name="MonsterTexture2" type="TextureRect" parent="ResultControl"]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 50.0
-offset_right = 259.0
-offset_bottom = 85.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_pktci")
-theme_override_font_sizes/font_size = 24
-text = "전투 결과"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 65.3077
+offset_top = 92.0
+offset_right = 305.308
+offset_bottom = 258.0
+texture = ExtResource("4_2kvqv")
 
 [node name="ResultLabel" type="Label" parent="ResultControl"]
 layout_mode = 0
 offset_left = 108.0
-offset_top = 89.0
+offset_top = 48.4616
 offset_right = 260.0
-offset_bottom = 124.0
+offset_bottom = 83.4616
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pktci")
 theme_override_font_sizes/font_size = 24
 text = "승리!"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ResultControl"]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 126.0
-offset_right = 296.0
-offset_bottom = 252.0
 
 [connection signal="pressed" from="ResultControl/OkBtn" to="." method="_on_ok_btn_pressed"]
