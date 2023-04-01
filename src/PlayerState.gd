@@ -8,7 +8,7 @@ signal set_coin_event
 var PHYSICAL = 1 
 var MAGIC = 2
 	
-const MAX_INVENTORY = 8
+const MAX_INVENTORY = 10
 
 # 플레이어가 선택한 템을 여기로 인벤토리에서 옮기기 
 var player_equipment = {
@@ -313,7 +313,7 @@ func check_already_has_item(id, inventory_type):
 func get_item(id, inventory_type):
 	# 인벤토리 용량 초과
 	if inventory[inventory_type].size() >= MAX_INVENTORY:
-		return 
+		return -1
 
 	if inventory_type == "equipment":
 		var item = {
@@ -337,7 +337,7 @@ func get_item(id, inventory_type):
 	# 인벤토리 창 업데이트
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
-	return 
+	return id
 
 
 func get_inventory_item_index_from_id(id, inventory_type):

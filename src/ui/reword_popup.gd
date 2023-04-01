@@ -51,7 +51,6 @@ func enable_combat(region_id):
 	tween.tween_method(set_progress_label, 0, 100, 3)
 	
 	
-
 func enable_result():
 	PlayerState.init_hud()
 	ProgressControl.visible = false 

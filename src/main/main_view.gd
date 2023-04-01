@@ -155,6 +155,7 @@ func get_reward_from_monster(monster_id):
 	# 경험치 증가
 	PlayerState.get_exp(reward.exp)
 	
+	var item_list = []
 	for item_id in reward.item:
 		randomize() 
 		# 아이템 프로토타입을 가지고옴
@@ -168,12 +169,20 @@ func get_reward_from_monster(monster_id):
 		# 인벤토리 용량 초과 체크 및 추가 (장비아이템의 경우 랜덤 에디셔널) 
 		# 소비나 기타의 경우 해당 아이템이 있는지 확인
 		if inventory_type == Equipment.EQUIPMENT:
-			PlayerState.get_item(item_id, "equipment")
+			# 정상적으로 얻었다면
+			if PlayerState.get_item(item_id, "equipment") != -1:
+				item_list.append(item_id)
 		elif inventory_type == Equipment.CONSUMPTION:
-			PlayerState.get_item(item_id, "consumption")
+			if PlayerState.get_item(item_id, "consumption") != -1:
+				item_list.append(item_id)
 		elif inventory_type == Equipment.ETC:
-			PlayerState.get_item(item_id, "etc")
-
+			if PlayerState.get_item(item_id, "etc") != -1:
+				item_list.append(item_id)
+	
+	# 전리품 화면 출력	
+	var spoil_popup_node = load("res://src/ui/spoil_popup.tscn").instantiate()
+	add_child(spoil_popup_node)
+	spoil_popup_node.set_spoils(reward.coin, reward.exp, item_list)
 
 
 # 경고창 출력

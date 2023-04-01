@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo78sxxwyydcy"]
+
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_31ppi"]
+[ext_resource type="Script" path="res://src/ui/spoil_popup.gd" id="1_wxbsu"]
+[ext_resource type="Texture2D" uid="uid://3o2os7ymq1yb" path="res://Assets/ui/btn/ok_btn_normal.png" id="2_22qoo"]
+[ext_resource type="Texture2D" uid="uid://b3hdd0i2rfnrq" path="res://Assets/ui/btn/ok_btn_pressed.png" id="3_noh3j"]
+[ext_resource type="FontFile" uid="uid://dn1d737hrtc4" path="res://Assets/fonts/NanumSquareRoundB.ttf" id="4_m4442"]
+
+[node name="SpoilPopup" type="CanvasLayer"]
+script = ExtResource("1_wxbsu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 34.0
+offset_right = 56.0
+offset_bottom = 74.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 21.0
+offset_right = 484.0
+offset_bottom = 598.0
+texture = ExtResource("1_31ppi")
+
+[node name="TextureButton" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 426.0
+offset_right = 496.0
+offset_bottom = 526.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("2_22qoo")
+texture_pressed = ExtResource("3_noh3j")
+
+[node name="Label" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 75.0
+offset_right = 413.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m4442")
+theme_override_font_sizes/font_size = 32
+text = "전리품"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 135.0
+offset_right = 246.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m4442")
+theme_override_font_sizes/font_size = 24
+text = "Coin : 13$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpLabel" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 134.0
+offset_right = 427.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_m4442")
+theme_override_font_sizes/font_size = 24
+text = "Exp : 13
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 191.0
+offset_right = 441.0
+offset_bottom = 413.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/TextureRect/TextureButton" to="." method="_on_texture_button_pressed"]
