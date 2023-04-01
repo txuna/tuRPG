@@ -108,7 +108,7 @@ var prototype = {
 			"type" : PHYSICAL,
 			"section" : WEAPON, 
 			"inventory_type" : EQUIPMENT,
-			"comment" : "여행자의 검이 300년 이상의 긴 세월을 정통을 겪은 녹이 슨 검이다.",
+			"comment" : "여행자의 검이 300년 이상의 긴 세월을 정통으로 겪은 녹이 슨 검이다.",
 		}, 
 		"state" : {
 			"damage" : 5, 

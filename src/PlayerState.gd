@@ -316,7 +316,13 @@ func get_item(id, inventory_type):
 		return 
 
 	if inventory_type == "equipment":
-		pass
+		var item = {
+			"prototype_id" : id, 
+			"additional_state" : {
+				
+			}
+		}
+		inventory[inventory_type].append(item)
 		
 	# 이미 해당 아이템을 가지고 있다면(소비, 기타)
 	elif inventory_type in ["consumption", "etc"]:
