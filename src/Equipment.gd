@@ -139,7 +139,6 @@ var prototype = {
 			"id" : 1100, 
 			"name" : "허름한 셔츠",
 			"image" : Image.load_from_file("res://Assets/equipment/armor/shirt/shabby_shirt.png"), 
-			"type" : PHYSICAL,
 			"section" : SHIRT, 
 			"inventory_type" : EQUIPMENT,
 			"comment" : "허르한 셔츠이다. 곧 찢어질듯 하다.",

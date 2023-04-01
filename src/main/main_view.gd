@@ -145,16 +145,39 @@ func calculate_damage(attacker, victim):
 		damage = 0
 	
 	return damage 
+
 	
-	
+# 몬스터로부터 전리품 획득
 func get_reward_from_monster(monster_id):
 	var reward = Global.monster_spoil[monster_id]
 	# 코인 증가 
 	PlayerState.get_coin(reward.coin)
 	# 경험치 증가
 	PlayerState.get_exp(reward.exp)
+	
+	for item_id in reward.item:
+		randomize() 
+		# 아이템 프로토타입을 가지고옴
+		var prototype = Equipment.prototype[item_id]
+		var inventory_type = prototype.info.inventory_type
+		# 인벤토리 크기 확인
+		var percent = reward.item[item_id]
+		# 확률에 의하여 아이템이 뜨지 않은 상황
+		if percent < randf_range(0.00, 100.00):
+			continue 
+		
+		# 인벤토리 용량 초과 체크 및 추가 (장비아이템의 경우 랜덤 에디셔널) 
+		# 소비나 기타의 경우 해당 아이템이 있는지 확인
+		if inventory_type == Equipment.EQUIPMENT:
+			PlayerState.get_item(item_id, "equipment")
+		elif inventory_type == Equipment.CONSUMPTION:
+			PlayerState.get_item(item_id, "consumption")
+		elif inventory_type == Equipment.ETC:
+			PlayerState.get_item(item_id, "etc")
 
 
+
+# 경고창 출력
 func open_alert_popup(msg):
 	var msg_string = Global.comment_alert[msg]
 	var alert_node = load("res://src/ui/alert_popup.tscn").instantiate() 

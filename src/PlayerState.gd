@@ -236,8 +236,9 @@ func wear_equipment(item, prototype):
 
 	# 착용한 상태에서 스탯 재설정
 	calculate_state_from_equipment()
-	# 무기의 데미지 타입 설정 
-	state.damage_type = prototype.info.type
+	# 만약 착용한 장비가 무기라면 무기의 데미지 타입 설정 
+	if prototype.info.section == Equipment.WEAPON:
+		state.damage_type = prototype.info.type
 
 	# 최대체력이 현재 체력보다 작다면 현재체력을 최대체력으로 설정 
 	if state.current_hp > state.max_hp:
@@ -301,8 +302,46 @@ func get_exp(value):
 	emit_signal("set_level_event")
 
 
+func check_already_has_item(id, inventory_type):
+	for item in inventory[inventory_type]:
+		if item.prototype_id == id:
+			return true
+			
+	return false
+	
+
+func get_item(id, inventory_type):
+	# 인벤토리 용량 초과
+	if inventory[inventory_type].size() >= MAX_INVENTORY:
+		return 
+
+	if inventory_type == "equipment":
+		pass
+		
+	# 이미 해당 아이템을 가지고 있다면(소비, 기타)
+	elif inventory_type in ["consumption", "etc"]:
+		if check_already_has_item(id, inventory_type):
+			var index = get_inventory_item_index_from_id(id, inventory_type)
+			inventory[inventory_type][index].count += 1
+		else:
+			inventory[inventory_type].append({
+				"prototype_id" : id,
+				"count" : 1
+			})
+	# 인벤토리 창 업데이트
+	var inventory_node = get_node("/root/MainView/InventoryPopup") 
+	inventory_node._on_update_inventory()
+	return 
 
 
+func get_inventory_item_index_from_id(id, inventory_type):
+	var index = 0 
+	for item in inventory[inventory_type]:
+		if item.prototype_id == id:
+			return index 
+		index+=1 
+	
+	return -1 
 
 
 
