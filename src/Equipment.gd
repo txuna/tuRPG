@@ -35,15 +35,48 @@ const SECOND_OPTION = 6
 const FIRST_OPTION = 7
 
 const additional_option = {
-	FIRST_OPTION : 0.1, 
-	SECOND_OPTION : 1.5, 
-	THIRD_OPTION : 3.5, 
-	FOURTH_OPTION : 10.5,
-	FIFTH_OPTION : 15.0, 
-	SIXTH_OPTION : 30.0, 
-	SEVENTH_OPTION : 60.0, 
-	ZERO_OPTION : 100.0
+	FIRST_OPTION : {
+		"percent" : 0.1, 
+		"string" : "1추",
+		"value" : 5
+	}, 
+	SECOND_OPTION : {
+		"percent" : 1.5, 
+		"string" : "2추",
+		"value" : 3
+	}, 
+	THIRD_OPTION : {
+		"percent" : 5.0, 
+		"string" : "3추",
+		"value" : 2.5
+	}, 
+	FOURTH_OPTION : {
+		"percent" : 10.5, 
+		"string" : "4추",
+		"value" : 2.0
+	}, 
+	FIFTH_OPTION : {
+		"percent" : 15.0, 
+		"string" : "5추",
+		"value" : 1.5
+	}, 
+	SIXTH_OPTION : {
+		"percent" : 30.0, 
+		"string" : "6추",
+		"value" : 1.0
+	},
+	SEVENTH_OPTION : {
+		"percent" : 60.0, 
+		"string" : "7추",
+		"value" : 0.5
+	},
+	ZERO_OPTION : {
+		"percent" : 100.0, 
+		"string" : "8추",
+		"value" : 0
+	},
 }
+
 
 const comment_damage_type_string = {
 	PHYSICAL : "물리", 

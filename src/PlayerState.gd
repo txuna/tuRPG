@@ -363,7 +363,7 @@ func determine_additional_state():
 	randomize() 
 	var percent = randf_range(0.00, 100.00)
 	for option_name in Equipment.additional_option:
-		var option_percent = Equipment.additional_option[option_name]
+		var option_percent = Equipment.additional_option[option_name].percent
 		if option_percent >= percent:
 			return option_name
 			
@@ -377,9 +377,8 @@ func set_additional_state(option_name, id):
 			"additional_state" : {}
 		}
 	
-	var additional_state = {
-		
-	}
+	var option = Equipment.additional_option[option_name]
+	var additional_state = {}
 	for state_name in additional_base_state:
 		randomize()
 		# 스탯 뽑기 실패 50확률 
@@ -387,7 +386,7 @@ func set_additional_state(option_name, id):
 			continue
 		
 		var plus_state = additional_base_state[state_name]
-		var value = snapped(randf_range(plus_state[0], plus_state[1]) * option_name, 0.01)
+		var value = snapped(randf_range(plus_state[0], plus_state[1]) * option.value, 0.01)
 		if state_name in ["damage", "max_hp"]:
 			value = int(value)
 		additional_state[state_name] = value 

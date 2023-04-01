@@ -88,7 +88,6 @@ func _on_open_detail_popup(item):
 		state_container.add_child(label)
 
 
-
 func _on_exit_btn_pressed():
 	queue_free()
 
