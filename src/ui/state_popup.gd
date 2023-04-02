@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var equipment_container = $Control/TextureRect/TextureRect/GridContainer
 @onready var state_list_container = $Control/TextureRect/Control/ScrollContainer/HBoxContainer2/StateContainer
 @onready var info_list_container = $Control/TextureRect/Control/ScrollContainer/HBoxContainer2/InfoContainer
 @onready var level_label = $Control/TextureRect/Control/ScrollContainer/HBoxContainer2/InfoContainer/LevelLabel
@@ -12,8 +11,25 @@ extends CanvasLayer
 @onready var current_region_label = $Control/TextureRect/Control/ScrollContainer/HBoxContainer2/InfoContainer/CurrentRegionLabel
 @onready var name_label = $Control/TextureRect/Control/ScrollContainer/HBoxContainer2/InfoContainer/NameLabel
 
+@onready var equipment_background = $Control/TextureRect/EquipmentBackground/GridContainer
+
+"""
+const WEAPON = 1
+const HAT = 2 
+const SHIRT = 3 
+const PANTS = 4
+const SHOES = 5
+const EARRING = 6
+const RING = 7
+const BELT = 8
+const CLOAK = 9
+"""
+
 const state_name_list = ["damage", "critical_percent", "critical_damage", "armor", "magic_resistance", 
 "avoidance_rate", "speed", "final_damage", "armor_penetration", "magic_resistance_penetration", "max_hp", "current_hp"]
+
+const equipment_name_list = [Equipment.WEAPON, Equipment.HAT, Equipment.SHIRT, Equipment.PANTS, Equipment.SHOES,
+Equipment.EARRING, Equipment.RING, Equipment.BELT, Equipment.CLOAK]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,7 +88,7 @@ func _on_open_state():
 		index += 1
 		# 업그레이드 포인트가 없다면 비활성화 
 		if player_state.upgrade_point > 0:
-			state_btn.disabled = true 
+			state_btn.disabled = false
 		else:
 			state_btn.disabled = false
 			
@@ -87,12 +103,44 @@ func _on_open_state():
 	current_region_label.text = "현재지역 : {value}".format({"value" : Global.region_info[player_state.current_region_id].region_name})
 	name_label.text = "이름 : {value}".format({"value" : player_state.name})
 
+	# 장비 현황 업데이트 - 시그널 연결 유무 확인
+	var item_index = 0
+	for node in equipment_background.get_children():
+		var texture_node = node.get_node("TextureRect")
+		var item = PlayerState.player_equipment[equipment_name_list[item_index]]
+		item_index += 1
+		texture_node.texture = null
+		# 이미 gui에 연결되어 있다면 해제
+		if texture_node.gui_input.is_connected(_on_open_detail):
+			texture_node.gui_input.disconnect(_on_open_detail)
+		# 아이템이 없는경우 
+		if item.is_empty():
+			continue 
+		var prototype = Equipment.prototype[item.prototype_id]
+		texture_node.texture = ImageTexture.create_from_image(prototype.info.image)
+		texture_node.gui_input.connect(_on_open_detail.bind(item))
+
 	
 func _on_update_state():
 	if visible:
 		_on_open_state()
 	
-	
+
+func _on_open_detail(event: InputEvent, item):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:		
+			var detail_popup = load("res://src/ui/detail_popup.tscn").instantiate() 
+			get_parent().add_child(detail_popup)
+			detail_popup._on_open_detail_popup(item)
+		# item use !
+		elif event.double_click:
+			# 아이템 타입이 기타, 소비이면 패스 
+			var item_type = Equipment.prototype[item.prototype_id].info.inventory_type
+			if item_type in [Equipment.ETC, Equipment.CONSUMPTION]:
+				return 
+			PlayerState.take_off_equipment(item)
+			
+	return 
 	
 	
 	

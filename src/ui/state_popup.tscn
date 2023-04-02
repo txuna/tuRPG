@@ -449,7 +449,7 @@ theme_override_font_sizes/font_size = 16
 text = "이름 : Player"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect"]
+[node name="EquipmentBackground" type="TextureRect" parent="Control/TextureRect"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 353.0
@@ -458,7 +458,7 @@ offset_bottom = 560.0
 texture = ExtResource("2_pann6")
 expand_mode = 1
 
-[node name="GridContainer" type="GridContainer" parent="Control/TextureRect/TextureRect"]
+[node name="GridContainer" type="GridContainer" parent="Control/TextureRect/EquipmentBackground"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -475,92 +475,83 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect2" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect2"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect2"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect3" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect3"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect3"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect4" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect4"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect4"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect5" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect5" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect5"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect5"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect6" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect6" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect6"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect6"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect7" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect7" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect7"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect7"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect8" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect8" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect8"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect8"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect9" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
+[node name="TextureRect9" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_3gvgu")
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect9"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect10" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer"]
-layout_mode = 2
-texture = ExtResource("6_3gvgu")
-
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/TextureRect/GridContainer/TextureRect10"]
+[node name="TextureRect" type="TextureRect" parent="Control/TextureRect/EquipmentBackground/GridContainer/TextureRect9"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
