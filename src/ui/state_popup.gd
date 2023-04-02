@@ -34,7 +34,6 @@ Equipment.EARRING, Equipment.RING, Equipment.BELT, Equipment.CLOAK]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_state()
-	_on_open_state()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
