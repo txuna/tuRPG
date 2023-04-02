@@ -7,6 +7,8 @@ signal set_coin_event
 
 var PHYSICAL = 1 
 var MAGIC = 2
+
+const LEVEL_UP_STATE_POINT = 3
 	
 const MAX_INVENTORY = 10
 
@@ -77,6 +79,21 @@ var inventory = {
 	]
 }
 
+var comment_state_string = {
+	"damage" : "공격력",	
+	"critical_percent" : "크리티컬 확률",	
+	"critical_damage" : "크리티컬 데미지",
+	"armor" : "방어력",		
+	"magic_resistance" : "마법저항력", 	
+	"avoidance_rate" : "회피율", 	
+	"speed" : "스피드", 				
+	"final_damage" : "최종데미지", 			
+	"armor_penetration" : "물리관통력", 			
+	"magic_resistance_penetration" : "마법관통력 ",
+	"max_hp" : "최대체력",	 
+	"current_hp" : "현재체력"
+}
+
 # 최종 스탯
 # 기본스탯 + 무기 스탯 
 var state = {
@@ -88,6 +105,7 @@ var state = {
 	"damage_type" : PHYSICAL,				# 데미지 타입
 	"name" : "player", 
 	"coin" : 10,
+	"upgrade_point" : 5						# 스탯 업그레이드 포인트
 }
 
 # 기본 스탯(플레이어가 투자 가능) + 물약 
@@ -126,7 +144,7 @@ func _ready():
 func calculate_state_from_equipment():
 	for state_name in basic_state:
 		state[state_name] = basic_state[state_name] + get_equipment_value(state_name)
-			
+
 
 # 착용한 장비의 방어력만 가지고옴
 func get_equipment_value(_type):
@@ -160,6 +178,9 @@ func get_equipment_value(_type):
 
 func change_region(region_id):
 	state.current_region_id = region_id
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
+	
 
 # 검사 로직은 player단에서
 func change_hp(value, notify=true):
@@ -174,6 +195,9 @@ func change_hp(value, notify=true):
 	
 	if notify:
 		emit_signal("set_hp_event")
+		
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
 	return 
 	
 	
@@ -183,8 +207,6 @@ func init_hud():
 	emit_signal("set_level_event")	
 	emit_signal("set_coin_event")
 	
-func change_exp(value):
-	pass
 
 # 전투 종료 팝업이 끝나면 체력바 HUD표시가능하게 false설정
 func get_damage(damage):
@@ -258,9 +280,11 @@ func wear_equipment(item, prototype):
 	if state.current_hp > state.max_hp:
 		state.current_hp = state.max_hp
 		
-	# hud와 인벤토리 업데이트 - 추후 상태창도 
+	# hud와 인벤토리 업데이트 
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
 	init_hud()
 
 # 인벤토리 크기 확인
@@ -285,11 +309,15 @@ func take_off_equipment(item):
 	state.damage_type = PHYSICAL
 	var inventory_node = get_node("/root/MainView/InventoryPopup") 
 	inventory_node._on_update_inventory()
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
 	init_hud()
 
 
 func get_coin(value):
 	state.coin += value 
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
 	emit_signal("set_coin_event")
 
 
@@ -300,6 +328,7 @@ func get_exp(value):
 	# 레벨 경험치를 초과할 경우 
 	if state.current_exp + value >= state.max_exp:
 		state.level += 1
+		state.upgrade_point += LEVEL_UP_STATE_POINT
 		# 경험치 차액만큼 제거 및 상한선 설정 
 		value = value - (state.max_exp - state.current_exp)
 		state.current_exp = 0 
@@ -312,6 +341,8 @@ func get_exp(value):
 	else:
 		state.current_exp += value
 		
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()
 	emit_signal("set_exp_event")
 	emit_signal("set_level_event")
 
@@ -356,8 +387,8 @@ func get_inventory_item_index_from_id(id, inventory_type):
 		if item.prototype_id == id:
 			return index 
 		index+=1 
-	
 	return -1 
+	
 
 func determine_additional_state():
 	randomize() 

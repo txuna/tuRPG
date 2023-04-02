@@ -5,6 +5,7 @@ signal fin
 @onready var MenuControl = $MenuControl 
 @onready var world_map = $TopView/WorldMap
 @onready var inventory_popup = $InventoryPopup
+@onready var state_popup = $StatePopup
 
 # Called when the node enters the scene tree for the first time.
 # 플레이어 스탯 초기화도 진행? 
@@ -26,7 +27,7 @@ func _on_toggle_inventory():
 
 
 func _on_toggle_state():
-	pass
+	state_popup._on_toggle_state();
 	
 	
 func _on_toggle_quest():
