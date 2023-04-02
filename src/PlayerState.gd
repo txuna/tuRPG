@@ -53,11 +53,6 @@ var inventory = {
 			"prototype_id" : 100, 
 			# 추가 능력치
 			"additional_state" : {
-				"damage" : 10,
-				"armor" : 5,
-				"critical_damage" : 7,
-				"critical_percent" : 7,
-				"max_hp" : 100
 			}
 		},
 		{
@@ -135,6 +130,20 @@ var additional_base_state = {
 	"armor_penetration" : [0.75, 3.0],
 	"magic_resistance_penetration" : [0.75, 3.0], 
 	"max_hp" : [5.0, 25.0]
+}
+
+var increase_state_point = {
+	"damage" : 2, 
+	"critical_percent" : 0.5, 
+	"critical_damage" : 0.8, 
+	"armor" : 5, 
+	"magic_resistance" : 4,
+	"avoidance_rate" : 0.2,
+	"speed" : 0.7, 
+	"final_damage" : 0.75,
+	"armor_penetration" : 1.5,
+	"magic_resistance_penetration" : 1.7, 
+	"max_hp" : 8
 }
 
 func _ready():
@@ -429,6 +438,12 @@ func set_additional_state(option_name, id):
 	
 	
 	
-	
-	
-
+func increase_state_using_point(state_name):
+	if state.upgrade_point <= 0:
+		return 
+		
+	basic_state[state_name] += increase_state_point[state_name]
+	state.upgrade_point -= 1
+	calculate_state_from_equipment()
+	var state_popup_node = get_node("/root/MainView/StatePopup")
+	state_popup_node._on_update_state()

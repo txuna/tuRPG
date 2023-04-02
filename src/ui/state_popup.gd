@@ -66,7 +66,7 @@ func init_state():
 		
 
 func _on_pressed_upgrade_state_btn(state_name):
-	print(state_name)
+	PlayerState.increase_state_using_point(state_name)
 
 
 # 버튼 활성화 유무 확인
@@ -89,7 +89,7 @@ func _on_open_state():
 		if player_state.upgrade_point > 0:
 			state_btn.disabled = false
 		else:
-			state_btn.disabled = false
+			state_btn.disabled = true
 			
 		
 	# 인포컨테이트 설정 
