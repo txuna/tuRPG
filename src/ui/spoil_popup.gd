@@ -34,7 +34,7 @@ func set_spoils(coin, exp, item_list):
 		hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
 		label.text = prototype.info.name 
-		texture.texture = ImageTexture.create_from_image(prototype.info.image)
+		texture.texture = prototype.info.image#ImageTexture.create_from_image(prototype.info.image)
 		
 		hbox.add_child(texture)
 		hbox.add_child(label)

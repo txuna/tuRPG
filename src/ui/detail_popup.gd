@@ -41,7 +41,7 @@ func _on_open_detail_popup(item):
 	
 	item_name_label.text = item_prototype.info.name
 	comment_label.text = item_prototype.info.comment 
-	item_texture.texture = ImageTexture.create_from_image(item_prototype.info.image)
+	item_texture.texture = item_prototype.info.image# ImageTexture.create_from_image(item_prototype.info.image)
 
 	# 추옵의 경우 색깔을 더한다. 5 (+3) 이런식- 프로토타입에는 없지만 추가능력치에는 있을경우도 고려해야함
 	

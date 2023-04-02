@@ -40,7 +40,7 @@ func enable_combat(region_id):
 	_region_id = region_id
 	ProgressControl.visible = true
 	ResultControl.visible = false
-	monster_texture.texture = ImageTexture.create_from_image(Global.region_info[region_id].image)
+	monster_texture.texture = Global.region_info[region_id].image#ImageTexture.create_from_image(Global.region_info[region_id].image)
 	if tween:
 		tween.kill() 
 	
@@ -59,7 +59,7 @@ func enable_result():
 		result_label.text = "승리!"
 	else:
 		result_label.text = "패배!"
-	result_monster_texture.texture = ImageTexture.create_from_image(Global.region_info[_region_id].image)
+	result_monster_texture.texture = Global.region_info[_region_id].image#ImageTexture.create_from_image(Global.region_info[_region_id].image)
 
 
 func _on_ok_btn_pressed():

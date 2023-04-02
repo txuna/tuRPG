@@ -65,7 +65,7 @@ func _on_open_inventory():
 		var prototype_id = item.prototype_id
 		var image = Equipment.prototype[prototype_id].info.image
 		var node = texture_list[index].get_node("TextureRect")
-		node.texture = ImageTexture.create_from_image(image)
+		node.texture = image#ImageTexture.create_from_image(image)
 		# 소비아이템이거나 기타아이템의 경우 갯수 표시
 		if not inventory_type == Equipment.EQUIPMENT:
 			node.get_node("CountLabel").text = str(inventory_content[index].count)

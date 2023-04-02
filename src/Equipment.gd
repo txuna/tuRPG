@@ -155,7 +155,7 @@ var prototype = {
 		"info" : {
 			"id" : 0, 
 			"name" : "녹슨 검", 
-			"image" : Image.load_from_file("res://Assets/equipment/weapon/one_hand/rusty_sword.png"), 
+			"image" : load("res://Assets/equipment/weapon/one_hand/rusty_sword.png"), 
 			"field" : ONE_HAND,
 			"type" : PHYSICAL,
 			"section" : WEAPON, 
@@ -170,7 +170,7 @@ var prototype = {
 		"info" : {
 			"id" : 100, 
 			"name" : "돌 검", 
-			"image" : Image.load_from_file("res://Assets/equipment/weapon/two_hand/stone_sword.png"), 
+			"image" : load("res://Assets/equipment/weapon/two_hand/stone_sword.png"), 
 			"field" : TWO_HAND, 
 			"type" : PHYSICAL,
 			"section" : WEAPON,
@@ -190,7 +190,7 @@ var prototype = {
 		"info" :{ 
 			"id" : 1100, 
 			"name" : "허름한 셔츠",
-			"image" : Image.load_from_file("res://Assets/equipment/armor/shirt/shabby_shirt.png"), 
+			"image" : load("res://Assets/equipment/armor/shirt/shabby_shirt.png"), 
 			"section" : SHIRT, 
 			"inventory_type" : EQUIPMENT,
 			"comment" : "허르한 셔츠이다. 곧 찢어질듯 하다.",
@@ -204,7 +204,7 @@ var prototype = {
 		"info" :{ 
 			"id" : 1800, 
 			"name" : "HP회복 포션",
-			"image" : Image.load_from_file("res://Assets/consumption/hp_potion1.png"), 
+			"image" : load("res://Assets/consumption/hp_potion1.png"), 
 			"inventory_type" : CONSUMPTION, 
 			"comment" : "체력을 회복하는 물약이다. 체력을 50획복하는 효과를 지닌다."
 		},

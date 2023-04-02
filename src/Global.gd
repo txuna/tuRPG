@@ -45,10 +45,10 @@ var monster_spoil = {
 		"exp" : 13, 
 		"coin" : 15, 
 		"item" : {
-			0 : 100.00, 	# 녹슨 검 
-			1800 : 100.00, # 체력회복 포션(50)
-			100 : 100.00, 
-			1100 : 100.00
+			0 : 10.00, 	# 녹슨 검 
+			1800 : 10.00, # 체력회복 포션(50)
+			100 : 10.00, 
+			1100 : 10.00
 		}
 	}
 }
@@ -78,7 +78,7 @@ var region_info = {
 	0 : {
 		"id"			: 0,
 		"region_name" 	: "페리마을",
-		"image" 		: Image.load_from_file("res://Assets/map/village.png"), 
+		"image" 		: load("res://Assets/map/village.png"), 
 		"type"			: VILLAGE,
 		"type_id"		: 0,		
 		"connected" 	: [1, 3]
@@ -86,7 +86,7 @@ var region_info = {
 	1 : {
 		"id"			: 1,
 		"region_name" 	: "페리호수",
-		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,		#몬스터 ID
 		"connected" 	: [0, 2, 3]
@@ -94,7 +94,7 @@ var region_info = {
 	2 : {
 		"id"			: 2,
 		"region_name" 	: "페리산 아래",
-		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,
 		"connected" 	: [1]
@@ -102,7 +102,7 @@ var region_info = {
 	3 : {
 		"id"			: 3,
 		"region_name" 	: "페리평원",
-		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,
 		"connected" 	: [0, 1, 4]
@@ -110,7 +110,7 @@ var region_info = {
 	4 : {
 		"id"			: 4,
 		"region_name" 	: "페리들판",
-		"image" 		: Image.load_from_file("res://Assets/monster/mushroom_fill.png"), 
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,
 		"connected" 	: [3]

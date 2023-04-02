@@ -116,8 +116,10 @@ func _on_open_state():
 		if item.is_empty():
 			continue 
 		var prototype = Equipment.prototype[item.prototype_id]
-		texture_node.texture = ImageTexture.create_from_image(prototype.info.image)
+		texture_node.texture = prototype.info.image #ImageTexture.create_from_image()
 		texture_node.gui_input.connect(_on_open_detail.bind(item))
+		
+		
 
 	
 func _on_update_state():
@@ -140,10 +142,6 @@ func _on_open_detail(event: InputEvent, item):
 			PlayerState.take_off_equipment(item)
 			
 	return 
-	
-	
-	
-	
 	
 	
 	
