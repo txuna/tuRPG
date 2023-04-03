@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cabt6ouynpwyy"]
+
+[ext_resource type="PackedScene" uid="uid://6ggecxysbk4l" path="res://src/ui/village_popup.tscn" id="1_2rtye"]
+[ext_resource type="Script" path="res://src/ui/village/perry_village_popup.gd" id="2_8jhep"]
+[ext_resource type="Texture2D" uid="uid://c621mbxqrbxo2" path="res://Assets/village/house.png" id="3_u0atg"]
+[ext_resource type="Texture2D" uid="uid://b3qfv2sf0e40a" path="res://Assets/village/npc1.png" id="4_uxijb"]
+[ext_resource type="Texture2D" uid="uid://dom06c5ov2or0" path="res://Assets/village/plant.png" id="5_gxxp5"]
+[ext_resource type="Texture2D" uid="uid://cac068dfabn3r" path="res://Assets/village/cloud.png" id="6_7emd3"]
+[ext_resource type="Texture2D" uid="uid://1ody0nmbcmjj" path="res://Assets/village/sun.png" id="7_eul7s"]
+
+[node name="PerryVillagePopup" instance=ExtResource("1_2rtye")]
+script = ExtResource("2_8jhep")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background" index="0"]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 416.0
+offset_right = 604.0
+offset_bottom = 672.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_u0atg")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Background" index="1"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 414.0
+offset_right = 405.0
+offset_bottom = 670.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_gxxp5")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/Background" index="2"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 101.0
+offset_right = 444.0
+offset_bottom = 357.0
+texture = ExtResource("6_7emd3")
+
+[node name="TextureRect5" type="TextureRect" parent="Control/Background" index="3"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 64.0
+offset_right = 319.0
+offset_bottom = 320.0
+texture = ExtResource("7_eul7s")
+
+[node name="ShopNpc" type="TextureButton" parent="Control/Background" index="4"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 415.0
+offset_right = 310.0
+offset_bottom = 671.0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_uxijb")
+
+[connection signal="pressed" from="Control/Background/ShopNpc" to="." method="_on_shop_npc_pressed"]

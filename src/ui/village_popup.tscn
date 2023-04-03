@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ggecxysbk4l"]
+
+[ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_2soce"]
+[ext_resource type="Script" path="res://src/ui/village_popup.gd" id="1_stp6h"]
+[ext_resource type="Texture2D" uid="uid://b5mdc5buxpvjf" path="res://Assets/ui/btn/close_btn_normal.png" id="3_0borr"]
+[ext_resource type="Texture2D" uid="uid://b6qtkssjphuyx" path="res://Assets/ui/btn/close_btn_pressed.png" id="4_b1s2m"]
+
+[node name="VillagePopup" type="CanvasLayer"]
+script = ExtResource("1_stp6h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 80.0
+offset_right = 507.0
+offset_bottom = 683.0
+texture = ExtResource("1_2soce")
+
+[node name="ExitBtn" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 151.0
+offset_right = 438.0
+offset_bottom = 183.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_0borr")
+texture_pressed = ExtResource("4_b1s2m")
+
+[connection signal="pressed" from="Control/ExitBtn" to="." method="_on_exit_btn_pressed"]
