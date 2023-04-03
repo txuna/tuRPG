@@ -207,7 +207,7 @@ var prototype = {
 			"image" : load("res://Assets/equipment/armor/earring/dog_tag.png"), 
 			"section" : EARRING, 
 			"inventory_type" : EQUIPMENT,
-			"comment" : "22년도 전역한 퇴역군인 박정선 대위(진)의 군번줄이다.",
+			"comment" : "군번줄을 귀고리 형태로 개량한 것이다. 차고 다니면 딸랑딸랑 소리가 난다.",
 		},
 		"state" : {
 			"max_hp" : 10, 
