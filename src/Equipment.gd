@@ -200,6 +200,21 @@ var prototype = {
 			"armor" : 15
 		}
 	},
+	1400 : {
+		"info" :{ 
+			"id" : 1400, 
+			"name" : "군번 귀고리",
+			"image" : load("res://Assets/equipment/armor/earring/dog_tag.png"), 
+			"section" : EARRING, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "22년도 전역한 퇴역군인 박정선 대위(진)의 군번줄이다.",
+		},
+		"state" : {
+			"max_hp" : 10, 
+			"armor" : 15,
+			"critical_percent" : 7
+		}
+	},
 	1800 : {
 		"info" :{ 
 			"id" : 1800, 

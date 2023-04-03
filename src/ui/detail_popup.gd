@@ -52,28 +52,34 @@ func _on_open_detail_popup(item):
 		label.add_theme_font_size_override("font_size", 14)
 		var value = item_prototype.state[state_name]
 	
-		# 추가 능력치가 없거나 장비 아이템이 아닌경우 
-		if not item_prototype.info.inventory_type == Equipment.EQUIPMENT or item.additional_state.is_empty():
+		# 장비 아이템이 아닌경우
+		if not item_prototype.info.inventory_type == Equipment.EQUIPMENT:
 			label.text = "{state_name} : {value}".format({
 				"state_name" : Global.comment_state_string[state_name], 
 				"value" : value
 			})
-		# 추가 능력치가 있다면
+	
+		# 장비 아이템인 경우
 		else:
-			# 해당 능력치가 없다면
+			# 해당 스탯에 대한 추가 능력치가 없다면
 			if not item.additional_state.has(state_name):
-				continue
-			var plus_value = item.additional_state[state_name]
-			label.text = "{state_name} : {value} + ({plus_value})".format({
+				label.text = "{state_name} : {value}".format({
 				"state_name" : Global.comment_state_string[state_name], 
-				"value" : str(value),
-				"plus_value" : str(plus_value)
+				"value" : value
 			})
+			else:
+				var plus_value = item.additional_state[state_name]
+				label.text = "{state_name} : {value} + ({plus_value})".format({
+					"state_name" : Global.comment_state_string[state_name], 
+					"value" : str(value),
+					"plus_value" : str(plus_value)
+				})
 		state_container.add_child(label)
 
 	# 프로토타입 스탯에는 없지만 에디셔널에는 있는 경우 
-	if not item.has("additional_state"):
+	if not item_prototype.info.inventory_type == Equipment.EQUIPMENT:
 		return 
+		
 	for state_name in item.additional_state:
 		if item_prototype.state.has(state_name):
 			continue 

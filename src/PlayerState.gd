@@ -10,7 +10,7 @@ var MAGIC = 2
 
 const LEVEL_UP_STATE_POINT = 3
 	
-const MAX_INVENTORY = 10
+const MAX_INVENTORY = 20
 
 # 플레이어가 선택한 템을 여기로 인벤토리에서 옮기기 
 var player_equipment = {
@@ -53,6 +53,14 @@ var inventory = {
 			"prototype_id" : 100, 
 			# 추가 능력치
 			"additional_state" : {
+			}
+		},
+		{
+			"prototype_id" : 1400, 
+			# 추가 능력치
+			"additional_state" : {
+				"armor" : 10, 
+				"magic_resistance" : 10
 			}
 		},
 		{
