@@ -127,6 +127,12 @@ const WEAPON_VALUE = {
 	}
 }
 
+var comment_inventory_type_string = {
+	EQUIPMENT : "equipment", 
+	CONSUMPTION : "consumption", 
+	ETC : "etc"
+}
+
 """
 	0 ~ 1000 : 무기 
 	0 ~ 100 한손검 

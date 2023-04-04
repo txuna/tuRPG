@@ -44,12 +44,12 @@ func make_font(font_size, color, h_align, v_align):
 
 
 func _on_sell_item(item, price):
-	print(item)
+	PlayerState.sell_item(item, price)
 	update_shop()
 	
 
 func _on_buy_item(id, price):
-	print(id)
+	PlayerState.buy_item(id, price)
 	update_shop()
 	
 

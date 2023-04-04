@@ -197,7 +197,7 @@ func get_reward_from_monster(monster_id):
 		# 소비나 기타의 경우 해당 아이템이 있는지 확인
 		if inventory_type == Equipment.EQUIPMENT:
 			# 정상적으로 얻었다면
-			if PlayerState.get_item(item_id, "equipment") != -1:
+			if PlayerState.get_item(item_id, "equipment", true) != -1:
 				item_list.append(item_id)
 		elif inventory_type == Equipment.CONSUMPTION:
 			if PlayerState.get_item(item_id, "consumption") != -1:

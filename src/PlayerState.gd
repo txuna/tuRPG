@@ -107,7 +107,7 @@ var state = {
 	"current_region_id" : 0,				# 플레이어 현재 위치 
 	"damage_type" : PHYSICAL,				# 데미지 타입
 	"name" : "player", 
-	"coin" : 10,
+	"coin" : 1000,
 	"upgrade_point" : 5						# 스탯 업그레이드 포인트
 }
 
@@ -163,7 +163,6 @@ func calculate_state_from_equipment():
 		state[state_name] = basic_state[state_name] + get_equipment_value(state_name)
 
 
-# 착용한 장비의 방어력만 가지고옴
 func get_equipment_value(_type):
 	var value = 0
 	for key in player_equipment:
@@ -179,14 +178,10 @@ func get_equipment_value(_type):
 			value += prototype.state[_type] 
 		
 		# 추가 능력치 존재하지 않는다면 
-		if equipment.additional_state.is_empty():
-			continue 
-			
-		# 추가 능력치 항목은 존재하나 해당 능력치가 아닌경우 
-		if equipment.additional_state.has(_type):
-			value += equipment.additional_state[_type]
-		
-		# 무기라면 무기상수 고려
+		if not equipment.additional_state.is_empty():
+			if equipment.additional_state.has(_type):
+				value += equipment.additional_state[_type]
+
 		if prototype.info.section == Equipment.WEAPON and _type == "damage":
 			value = int(value * Equipment.WEAPON_VALUE[prototype.info.field].value)
 		
@@ -386,16 +381,21 @@ func check_already_has_item(id, inventory_type):
 	return false	
 	
 
-func get_item(id, inventory_type):
+func get_item(id, inventory_type, option=false):
 	# 인벤토리 용량 초과
 	if inventory[inventory_type].size() >= MAX_INVENTORY:
 		return -1
 
 	if inventory_type == "equipment":
-		var option_name = determine_additional_state()
-		var item = set_additional_state(option_name, id)
-		inventory[inventory_type].append(item)
-		
+		if option:
+			var option_name = determine_additional_state()
+			var item = set_additional_state(option_name, id)
+			inventory[inventory_type].append(item)
+		else:
+			inventory[inventory_type].append({
+				"prototype_id" : id, 
+				"additional_state" : {}
+			})
 	# 이미 해당 아이템을 가지고 있다면(소비, 기타)
 	elif inventory_type in ["consumption", "etc"]:
 		if check_already_has_item(id, inventory_type):
@@ -464,8 +464,27 @@ func increase_state_using_point(state_name):
 	if state.upgrade_point <= 0:
 		return 
 		
-		
 	basic_state[state_name] += increase_state_point[state_name]
 	state.upgrade_point -= 1
 	calculate_state_from_equipment()
 	update_state()
+
+
+
+func sell_item(item, price):
+	pass
+	
+
+func buy_item(id, price):
+	if state.coin < price:
+		get_node("/root/MainView").open_alert_popup(Global.NOT_ENOUGH_COIN)
+		return
+	
+	var type = Equipment.prototype[id].info.inventory_type
+	var type_string = Equipment.comment_inventory_type_string[type]
+	if get_item(id, type_string) == -1:
+		get_node("/root/MainView").open_alert_popup(Global.NOT_ENOUGH_COIN)
+		return 
+		
+	state.coin -= price
+
