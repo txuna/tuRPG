@@ -201,7 +201,7 @@ func update_inventory():
 
 
 func update_shop():
-	var shop_popup_node = get_node_or_null("res://src/ui/shop_popup.tscn")
+	var shop_popup_node = get_node_or_null("/root/MainView/ShopPopup")
 	if shop_popup_node:
 		shop_popup_node.update_shop()
 
@@ -472,7 +472,22 @@ func increase_state_using_point(state_name):
 
 
 func sell_item(item, price):
-	pass
+	var type = Equipment.prototype[item.prototype_id].info.inventory_type
+	var type_string = Equipment.comment_inventory_type_string[type]
+	var prototype = Equipment.prototype[item.prototype_id]
+	
+	if type == Equipment.EQUIPMENT:
+		inventory.equipment.erase(item)
+	else:
+		if item.count > 1:
+			item.count -= 1
+		else:
+			inventory[type_string].erase(item)
+	
+	state.coin += prototype.price.sell
+	update_inventory()
+	update_state()
+	update_shop()
 	
 
 func buy_item(id, price):
@@ -487,4 +502,6 @@ func buy_item(id, price):
 		return 
 		
 	state.coin -= price
-
+	update_inventory()
+	update_state()
+	update_shop()

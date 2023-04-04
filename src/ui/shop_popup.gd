@@ -45,12 +45,12 @@ func make_font(font_size, color, h_align, v_align):
 
 func _on_sell_item(item, price):
 	PlayerState.sell_item(item, price)
-	update_shop()
+	#update_shop()
 	
 
 func _on_buy_item(id, price):
 	PlayerState.buy_item(id, price)
-	update_shop()
+	#update_shop()
 	
 
 func _on_display_coin():
