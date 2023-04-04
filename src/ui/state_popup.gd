@@ -42,16 +42,9 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
-	visible = false
+	queue_free()
 
 
-func _on_toggle_state():
-	if visible:
-		visible = false  
-	else:
-		_on_open_state()
-	return 
-	
 	
 func init_state():
 	var player_state = PlayerState.state
@@ -71,7 +64,6 @@ func _on_pressed_upgrade_state_btn(state_name):
 
 # 버튼 활성화 유무 확인
 func _on_open_state():
-	visible = true
 	var player_state = PlayerState.state
 	var index = 0
 	
@@ -123,8 +115,8 @@ func _on_open_state():
 
 	
 func _on_update_state():
-	if visible:
-		_on_open_state()
+	_on_open_state()
+		
 	
 
 func _on_open_detail(event: InputEvent, item):

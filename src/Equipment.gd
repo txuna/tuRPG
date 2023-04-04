@@ -164,6 +164,10 @@ var prototype = {
 		}, 
 		"state" : {
 			"damage" : 5, 
+		},
+		"price" : {
+			"buy" : 500, 
+			"sell" : 100
 		}
 	},
 	100 : {
@@ -181,6 +185,10 @@ var prototype = {
 			"damage" : 7, 
 			"armor" : 7, 
 			"critical_percent" : 3 
+		},
+		"price" : {
+			"buy" : 1500, 
+			"sell" : 300
 		}
 	},
 	200 : {
@@ -198,6 +206,10 @@ var prototype = {
 		"state" : {
 			"max_hp" : 10, 
 			"armor" : 15
+		},
+		"price" : {
+			"buy" : 500, 
+			"sell" : 70
 		}
 	},
 	1400 : {
@@ -213,6 +225,10 @@ var prototype = {
 			"max_hp" : 10, 
 			"armor" : 15,
 			"critical_percent" : 7
+		},
+		"price" : {
+			"buy" : 1500, 
+			"sell" : 350
 		}
 	},
 	1800 : {
@@ -225,6 +241,10 @@ var prototype = {
 		},
 		"state" : {
 			"current_hp" : 50
+		},
+		"price" : {
+			"buy" : 250, 
+			"sell" : 30
 		}
 	},
 }

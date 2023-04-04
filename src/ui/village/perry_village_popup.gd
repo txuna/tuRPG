@@ -13,4 +13,8 @@ func _process(delta):
 
 # 상점 클릭
 func _on_shop_npc_pressed():
-	pass # Replace with function body.
+	var shop_node = load("res://src/ui/shop_popup.tscn").instantiate() 
+	get_parent().add_child(shop_node)
+	# NPC 코드
+	shop_node.init(village.npc[0])
+	shop_node.open()

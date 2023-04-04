@@ -4,8 +4,8 @@ signal fin
 
 @onready var MenuControl = $MenuControl 
 @onready var world_map = $TopView/WorldMap
-@onready var inventory_popup = $InventoryPopup
-@onready var state_popup = $StatePopup
+#@onready var inventory_popup = $InventoryPopup
+#@onready var state_popup = $StatePopup
 
 # Called when the node enters the scene tree for the first time.
 # 플레이어 스탯 초기화도 진행? 
@@ -23,24 +23,50 @@ func _process(delta):
 
 
 func _on_toggle_inventory():
-	inventory_popup._on_toggle_inventory()
+	var inventory_popup = get_node_or_null("/root/MainView/InventoryPopup")
+	if inventory_popup == null:
+		inventory_popup = load("res://src/ui/inventory_popup.tscn").instantiate() 
+		add_child(inventory_popup)
+		inventory_popup._on_open_inventory()
+	else:
+		inventory_popup.queue_free()
 
 
 func _on_toggle_state():
-	state_popup._on_toggle_state();
+	var state_popup = get_node_or_null("/root/MainView/StatePopup")
+	if state_popup == null:
+		state_popup = load("res://src/ui/state_popup.tscn").instantiate() 
+		add_child(state_popup)
+		state_popup._on_open_state()
+	else:
+		state_popup.queue_free()
+		
 	
 	
 func _on_toggle_quest():
 	pass
 
+
+func open_village(village_id):
+	var village = Global.village_info[village_id] 
+	var node = (village.scene).instantiate() 
+	add_child(node)
+	node.init(village_id)
+	
+	
+
 # 해당 지역에 따른 오픈
 # 플레이어 이동
+# 해당 팝업이 오픈중일떄는 이동 불가
 func _on_adventure_region(region_id):
 	var region = Global.region_info[region_id]
 	# 마을의 경우 즉시 이동 
 	if region.type == Global.VILLAGE:
 		PlayerState.change_region(region_id)
 		world_map.trigger_region_from_player(region_id)
+		var village_id = Global.region_info[region_id].type_id
+		open_village(village_id)
+		
 		
 	elif region.type == Global.MONSTER:
 		simulate_combat(region_id, region.type_id)

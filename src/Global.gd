@@ -12,6 +12,9 @@ var DEFENSE_CONSTANT = 100
 const NOT_ENOUGH_INVENTORY = 1
 const ALREADY_FULL_HP = 2
 
+const SHOPKEEPER = 1
+
+
 const comment_alert = {
 	NOT_ENOUGH_INVENTORY : "인벤토리 크키가 부족하여 아이템을 벗을 수 없습니다.",
 	ALREADY_FULL_HP : "이미 체력이 가득 찬 상태입니다. 물약을 사용할 필요가 없습니다."
@@ -34,7 +37,16 @@ const comment_state_string = {
 
 var village_info = {
 	0 : {
-		
+		"id" : 0, 
+		"name" : "페리마을", 
+		"scene" : load("res://src/ui/village/perry_village_popup.tscn"),
+		"npc" : {
+			0 : {
+				"name" : "페리마을 상점",
+				"type" : SHOPKEEPER, 
+				"product" : [0, 1800]
+			},
+		}
 	}
 }
 # 장비아이템의 경우 additional_state 랜덤으로 결정 

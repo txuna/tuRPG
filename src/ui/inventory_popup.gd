@@ -12,7 +12,7 @@ var string_type = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +21,8 @@ func _process(delta):
 
 
 func _on_close_btn_pressed():
-	visible = false
+	queue_free()
+	#visible = false
 
 
 func _on_equipment_btn_pressed():
@@ -49,8 +50,7 @@ func init_inventory():
 
 
 func _on_update_inventory():
-	if visible:
-		_on_open_inventory()
+	_on_open_inventory()
 
 
 # 소비아이템이나 기타아이템의 경우 count도 추가
@@ -87,16 +87,6 @@ func _on_open_detail(event: InputEvent, item):
 				return 
 			PlayerState.use_item(item)
 	return 
-		
-
-
-func _on_toggle_inventory():
-	if visible:
-		visible = false  
-	else:
-		_on_open_inventory()
-	return 
-
 
 
 

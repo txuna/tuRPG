@@ -193,10 +193,27 @@ func get_equipment_value(_type):
 	return value 
 
 
+func update_state():
+	var state_popup_node = get_node_or_null("/root/MainView/StatePopup")
+	if state_popup_node:
+		state_popup_node._on_update_state()
+		
+		
+func update_inventory():
+	var inventory_popup_node = get_node_or_null("/root/MainView/InventoryPopup")
+	if inventory_popup_node:
+		inventory_popup_node._on_update_inventory()
+
+
+func update_shop():
+	var shop_popup_node = get_node_or_null("res://src/ui/shop_popup.tscn")
+	if shop_popup_node:
+		shop_popup_node.update_shop()
+
+
 func change_region(region_id):
 	state.current_region_id = region_id
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_state()
 	
 
 # 검사 로직은 player단에서
@@ -213,8 +230,7 @@ func change_hp(value, notify=true):
 	if notify:
 		emit_signal("set_hp_event")
 		
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_state()
 	return 
 	
 	
@@ -263,9 +279,9 @@ func use_consumption(item, prototype):
 		inventory.consumption.erase(item)
 	
 	# 추후 상태창도 업데이트 
-	var inventory_node = get_node("/root/MainView/InventoryPopup") 
-	inventory_node._on_update_inventory()
-		
+	update_inventory()
+	update_state()
+	update_shop()
 
 # 기존에 착용중이던 장비 확인 및 백업 
 # 체력바 같은 경우를 위해 hud_init + inventory update 
@@ -298,10 +314,9 @@ func wear_equipment(item, prototype):
 		state.current_hp = state.max_hp
 		
 	# hud와 인벤토리 업데이트 
-	var inventory_node = get_node("/root/MainView/InventoryPopup") 
-	inventory_node._on_update_inventory()
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_inventory()
+	update_state()
+	update_shop()
 	init_hud()
 
 # 인벤토리 크기 확인
@@ -324,17 +339,17 @@ func take_off_equipment(item):
 		
 	# 무기가 없는 상태는 물리타입 
 	state.damage_type = PHYSICAL
-	var inventory_node = get_node("/root/MainView/InventoryPopup") 
-	inventory_node._on_update_inventory()
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_inventory()
+	update_state()
+	update_shop()
 	init_hud()
 
 
 func get_coin(value):
 	state.coin += value 
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_inventory()
+	update_state()
+	update_shop()
 	emit_signal("set_coin_event")
 
 
@@ -358,8 +373,7 @@ func get_exp(value):
 	else:
 		state.current_exp += value
 		
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_state()
 	emit_signal("set_exp_event")
 	emit_signal("set_level_event")
 
@@ -393,8 +407,8 @@ func get_item(id, inventory_type):
 				"count" : 1
 			})
 	# 인벤토리 창 업데이트
-	var inventory_node = get_node("/root/MainView/InventoryPopup") 
-	inventory_node._on_update_inventory()
+	update_inventory()
+	update_shop()
 	return id
 
 
@@ -450,8 +464,8 @@ func increase_state_using_point(state_name):
 	if state.upgrade_point <= 0:
 		return 
 		
+		
 	basic_state[state_name] += increase_state_point[state_name]
 	state.upgrade_point -= 1
 	calculate_state_from_equipment()
-	var state_popup_node = get_node("/root/MainView/StatePopup")
-	state_popup_node._on_update_state()
+	update_state()
