@@ -7,7 +7,7 @@ extends Control
 
 var is_dragging = false 
 var previous_mouse_position = Vector2()
-
+var tween = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_rigon_line()
@@ -18,7 +18,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	gui_input()
-
+	if tween:
+		if not tween.is_running():
+			tween.kill() 
+			tween = null
+			# player위치 확인 
+			check_player_position()
+	
+	
+func check_player_position():
+	var regions_node = get_node("ColorRect/RegionControl")
+	for node in regions_node.get_children():
+		if node.region_id == PlayerState.state.current_region_id:
+			if node.global_position != player_node.global_position:
+				player_node.global_position = node.global_position
+	
 
 func gui_input():
 	if Input.is_action_just_pressed("pressed"):
@@ -63,7 +77,7 @@ func trigger_region_from_player(region_id):
 	
 	var region_node = get_region_node(region_id) 
 	# 전투 승리시 이동
-	var tween = get_tree().create_tween()
+	tween = get_tree().create_tween()
 	tween.tween_property(player_node, "global_position", region_node.global_position, 1)
 	#player_node.global_position = region_node.global_position
 	
@@ -82,7 +96,7 @@ func create_rigon_line():
 				continue 
 		
 			var line = Line2D.new() 
-			line.width = 7
+			line.width = 2
 			line.add_point(node.get_center_position())
 			line.add_point(connected_node.get_center_position())
 			line.joint_mode = Line2D.LINE_JOINT_ROUND

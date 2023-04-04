@@ -46,7 +46,7 @@ var village_info = {
 			0 : {
 				"name" : "페리마을 상점",
 				"type" : SHOPKEEPER, 
-				"product" : [0, 1800]
+				"product" : [0, 1800, 100]
 			},
 		}
 	}
@@ -95,11 +95,11 @@ var region_info = {
 		"image" 		: load("res://Assets/map/village.png"), 
 		"type"			: VILLAGE,
 		"type_id"		: 0,		
-		"connected" 	: [1, 3]
+		"connected" 	: [1]
 	},
 	1 : {
 		"id"			: 1,
-		"region_name" 	: "페리호수",
+		"region_name" 	: "페리호수1",
 		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
 		"type_id"		: 0,		#몬스터 ID
@@ -107,28 +107,124 @@ var region_info = {
 	}, 
 	2 : {
 		"id"			: 2,
-		"region_name" 	: "페리산 아래",
+		"region_name" 	: "페리호수2",
 		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
-		"type_id"		: 0,
-		"connected" 	: [1]
-	},
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [1, 6]
+	}, 
 	3 : {
 		"id"			: 3,
-		"region_name" 	: "페리평원",
+		"region_name" 	: "페리들판1",
 		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
-		"type_id"		: 0,
-		"connected" 	: [0, 1, 4]
-	},
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [1, 4, 11]
+	}, 
 	4 : {
 		"id"			: 4,
-		"region_name" 	: "페리들판",
+		"region_name" 	: "페리들판2",
 		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
 		"type"			: MONSTER,
-		"type_id"		: 0,
-		"connected" 	: [3]
-	}
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [3, 5]
+	}, 
+	5 : {
+		"id"			: 5,
+		"region_name" 	: "페리들판3",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [4]
+	}, 
+	6 : {
+		"id"			: 6,
+		"region_name" 	: "페리평원1",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [2, 7]
+	}, 
+	7 : {
+		"id"			: 7,
+		"region_name" 	: "페리평원2",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [6, 8]
+	}, 
+	8 : {
+		"id"			: 8,
+		"region_name" 	: "페리산 언덕아래",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [7, 9]
+	}, 
+	9 : {
+		"id"			: 9,
+		"region_name" 	: "페리산 깊은 골",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [8, 10]
+	},
+	10 : {
+		"id"			: 10,
+		"region_name" 	: "페리산 고원",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,	#몬스터 ID
+		"connected" 	: [9]
+	}, 
+	11 : {
+		"id"			: 11,
+		"region_name" 	: "숲의 시작",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [3, 12]
+	}, 
+	12 : {
+		"id"			: 12,
+		"region_name" 	: "울창한 숲",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [11, 13]
+	}, 
+	13 : {
+		"id"			: 13,
+		"region_name" 	: "솦의 갈림길",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [12, 14, 16]
+	}, 
+	14 : {
+		"id"			: 14,
+		"region_name" 	: "깊은 숲1",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [13, 15]
+	}, 
+	15 : {
+		"id"			: 15,
+		"region_name" 	: "깊은 숲2",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [14]
+	}, 
+	16 : {
+		"id"			: 16,
+		"region_name" 	: "고요한 숲",
+		"image" 		: load("res://Assets/monster/mushroom_fill.png"), 
+		"type"			: MONSTER,
+		"type_id"		: 0,		#몬스터 ID
+		"connected" 	: [13]
+	}, 
 }
 
 

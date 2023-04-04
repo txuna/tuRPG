@@ -13,7 +13,7 @@ func _ready():
 	MenuControl.toggle_inventory.connect(_on_toggle_inventory)
 	MenuControl.toggle_state.connect(_on_toggle_state)
 	MenuControl.toggle_quest.connect(_on_toggle_quest)
-	
+	world_map.trigger_region_from_player(PlayerState.state.current_region_id)
 	PlayerState.init_hud()
 	
 

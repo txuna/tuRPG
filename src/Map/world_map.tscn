@@ -157,19 +157,67 @@ position = Vector2(373, 877)
 region_id = 0
 
 [node name="RegionPoint2" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
-position = Vector2(578, 715)
+position = Vector2(582, 710)
 
 [node name="RegionPoint3" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
-position = Vector2(309, 576)
+position = Vector2(525, 636)
 region_id = 2
 
 [node name="RegionPoint4" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
-position = Vector2(588, 901)
+position = Vector2(683, 810)
 region_id = 3
 
 [node name="RegionPoint5" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
-position = Vector2(819, 1016)
+position = Vector2(611, 896)
 region_id = 4
+
+[node name="RegionPoint6" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(483, 984)
+region_id = 5
+
+[node name="RegionPoint7" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(389, 704)
+region_id = 6
+
+[node name="RegionPoint8" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(232, 686)
+region_id = 7
+
+[node name="RegionPoint9" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(307, 578)
+region_id = 8
+
+[node name="RegionPoint10" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(442, 563)
+region_id = 9
+
+[node name="RegionPoint11" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(345, 462)
+region_id = 10
+
+[node name="RegionPoint12" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(811, 905)
+region_id = 11
+
+[node name="RegionPoint13" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(965, 986)
+region_id = 12
+
+[node name="RegionPoint14" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(818, 1110)
+region_id = 13
+
+[node name="RegionPoint15" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(661, 1218)
+region_id = 14
+
+[node name="RegionPoint16" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(581, 1429)
+region_id = 15
+
+[node name="RegionPoint17" parent="ColorRect/RegionControl" instance=ExtResource("7_2y67e")]
+position = Vector2(1007, 1317)
+region_id = 16
 
 [node name="LineControl" type="Node2D" parent="ColorRect"]
 

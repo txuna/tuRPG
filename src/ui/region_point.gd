@@ -42,8 +42,8 @@ func get_center_position():
 
 func disable_region():
 	region_btn.disabled = true
-	comment_label.text = "이동불가"
+	comment_label.text = "{name}(이동불가)".format({"name" : Global.region_info[region_id].region_name})
 	
 func enable_region():
 	region_btn.disabled = false
-	comment_label.text = "이동가능"
+	comment_label.text = "{name}(이동가능)".format({"name" : Global.region_info[region_id].region_name})
