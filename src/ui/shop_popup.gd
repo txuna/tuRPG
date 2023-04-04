@@ -82,6 +82,7 @@ func _on_display_shop():
 		
 		inner_hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		hbox_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		inner_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
 		coin_label.text = "가격: {coin}$".format({"coin" : str(prototype.price.buy)})
 		name_label.text = "{name}".format({"name" : prototype.info.name})
@@ -126,6 +127,7 @@ func _on_display_inventory():
 		
 		inner_hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		hbox_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		inner_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
 		# 소비나 기타아이템의 경우 갯수도 포함
 		if prototype.info.inventory_type != Equipment.EQUIPMENT:

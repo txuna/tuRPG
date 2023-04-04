@@ -59,6 +59,7 @@ size_flags_horizontal = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/TextureRect/BuyContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/TextureRect/BuyContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -119,6 +120,7 @@ offset_bottom = 261.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect/SellContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ExitBtn" type="TextureButton" parent="Control"]
 layout_mode = 0
