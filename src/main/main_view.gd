@@ -98,6 +98,7 @@ func simulate_combat(region_id, id):
 	var monster = Global.monster_info[id].duplicate() 
 	var player_state = PlayerState.state 
 	var combat_order = [] 
+	var combat_log = []
 	
 	if player_state.speed >= monster.speed:
 		combat_order.append(player_state)
@@ -116,6 +117,14 @@ func simulate_combat(region_id, id):
 		else:
 			PlayerState.get_damage(damage)
 		
+		combat_log.append(
+			"{attacker}는 ({damage})피해를 입혔다. {victim}의 체력 [{hp}]".format({
+				"attacker" : combat_order[0].name,
+				"damage" : damage,  
+				"victim" : combat_order[1].name, 
+				"hp" : combat_order[1].current_hp
+			})
+		)
 		"""	
 		print("{attacker} give {damage} to {victim} and has {hp}".format({
 			"attacker" : combat_order[0].name, 
@@ -136,7 +145,7 @@ func simulate_combat(region_id, id):
 		reword_popup_instance.init(true)
 		# 전리품 추가 루틴 
 
-	reword_popup_instance.enable_combat(region_id)
+	reword_popup_instance.enable_combat(region_id, combat_log)
 
 
 # 상대방에 적용될 데미지 계산 

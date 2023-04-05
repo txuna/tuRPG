@@ -19,7 +19,8 @@ var player_equipment = {
 			# 추가 능력치
 			"additional_state" : {
 				"damage" : 10,
-			}
+			},
+			"option" : Equipment.SIXTH_OPTION
 	},
 	Equipment.HAT : {
 		
@@ -53,22 +54,9 @@ var inventory = {
 			"prototype_id" : 100, 
 			# 추가 능력치
 			"additional_state" : {
-			}
+			},
+			"option" : Equipment.ZERO_OPTION
 		},
-		{
-			"prototype_id" : 1400, 
-			# 추가 능력치
-			"additional_state" : {
-				"armor" : 10, 
-				"magic_resistance" : 10
-			}
-		},
-		{
-			"prototype_id" : 1100, 
-			"additional_state" : {
-				
-			}
-		}
 	], 
 	# 장비아이템이 아닌경우 additional_state이 없다
 	"consumption" : [
@@ -127,30 +115,30 @@ var basic_state = {
 }
 
 var additional_base_state = {
-	"damage" : [1.0, 5.0], 
-	"critical_percent" : [0.5, 2.0], 
-	"critical_damage" : [0.35, 2.0], 
-	"armor" : [5.0, 25.0], 
-	"magic_resistance" : [5.0, 25.0],
-	"avoidance_rate" : [0.25, 2.0],
-	"speed" : [0.5, 3.5], 
-	"final_damage" : [0.5, 2.0],
-	"armor_penetration" : [0.75, 3.0],
-	"magic_resistance_penetration" : [0.75, 3.0], 
-	"max_hp" : [5.0, 25.0]
+	"damage" : [1, 10], 
+	"critical_percent" : [1, 5], 
+	"critical_damage" : [1, 5], 
+	"armor" : [1, 10], 
+	"magic_resistance" : [1, 7],
+	"avoidance_rate" : [1, 3],
+	"speed" : [1, 4], 
+	"final_damage" : [1, 3],
+	"armor_penetration" : [1, 3],
+	"magic_resistance_penetration" : [1, 3], 
+	"max_hp" : [1, 15]
 }
 
 var increase_state_point = {
-	"damage" : 2, 
+	"damage" : 3, 
 	"critical_percent" : 0.5, 
-	"critical_damage" : 0.8, 
+	"critical_damage" : 1, 
 	"armor" : 5, 
-	"magic_resistance" : 4,
+	"magic_resistance" : 3,
 	"avoidance_rate" : 0.2,
-	"speed" : 0.7, 
-	"final_damage" : 0.75,
-	"armor_penetration" : 1.5,
-	"magic_resistance_penetration" : 1.7, 
+	"speed" : 1, 
+	"final_damage" : 1,
+	"armor_penetration" : 2,
+	"magic_resistance_penetration" : 2, 
 	"max_hp" : 8
 }
 
@@ -394,7 +382,8 @@ func get_item(id, inventory_type, option=false):
 		else:
 			inventory[inventory_type].append({
 				"prototype_id" : id, 
-				"additional_state" : {}
+				"additional_state" : {},
+				"option" : Equipment.ZERO_OPTION
 			})
 	# 이미 해당 아이템을 가지고 있다면(소비, 기타)
 	elif inventory_type in ["consumption", "etc"]:
@@ -436,26 +425,29 @@ func set_additional_state(option_name, id):
 	if option_name == Equipment.ZERO_OPTION:
 		return {
 			"prototype_id" : id, 
-			"additional_state" : {}
+			"additional_state" : {},
+			"option" : Equipment.ZERO_OPTION
 		}
 	
 	var option = Equipment.additional_option[option_name]
 	var additional_state = {}
 	for state_name in additional_base_state:
 		randomize()
-		# 스탯 뽑기 실패 50확률 
-		if randi_range(0, 100) <= 50:
+		# 스탯 뽑기 실패 30확률 
+		if randi_range(0, 100) <= 30:
 			continue
 		
 		var plus_state = additional_base_state[state_name]
-		var value = snapped(randf_range(plus_state[0], plus_state[1]) * option.value, 0.01)
-		if state_name in ["damage", "max_hp"]:
-			value = int(value)
+		var value = randi_range(plus_state[0], plus_state[1])
+		value = int(value * option.value)
+		#var value = snapped(randf_range(plus_state[0], plus_state[1]) * option.value, 0.01)
 		additional_state[state_name] = value 
 		
 	return {
-		"prototype_id" : id, 
-		"additional_state" : additional_state
+			"prototype_id" : id, 
+			"additional_state" : additional_state,
+			"option" : option_name
+		
 		}
 	
 	

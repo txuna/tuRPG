@@ -39,7 +39,14 @@ func _on_open_detail_popup(item):
 	elif item_prototype.info.inventory_type == Equipment.ETC:
 		section_label.text = "기타아이템"
 	
-	item_name_label.text = item_prototype.info.name
+	
+	if item_prototype.info.inventory_type == Equipment.EQUIPMENT:
+		item_name_label.text = "{name}{(+{value})}".format({
+			"name" : item_prototype.info.name, 
+			"value" : Equipment.additional_option[item.option].string
+		})
+	else:
+		item_name_label.text = item_prototype.info.name
 	comment_label.text = item_prototype.info.comment 
 	item_texture.texture = item_prototype.info.image# ImageTexture.create_from_image(item_prototype.info.image)
 

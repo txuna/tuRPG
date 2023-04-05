@@ -37,42 +37,42 @@ const FIRST_OPTION = 7
 const additional_option = {
 	FIRST_OPTION : {
 		"percent" : 0.1, 
-		"string" : "1추",
+		"string" : "7",
 		"value" : 5
 	}, 
 	SECOND_OPTION : {
 		"percent" : 1.5, 
-		"string" : "2추",
+		"string" : "6",
 		"value" : 3
 	}, 
 	THIRD_OPTION : {
 		"percent" : 5.0, 
-		"string" : "3추",
+		"string" : "5",
 		"value" : 2.5
 	}, 
 	FOURTH_OPTION : {
 		"percent" : 10.5, 
-		"string" : "4추",
+		"string" : "4",
 		"value" : 2.0
 	}, 
 	FIFTH_OPTION : {
 		"percent" : 15.0, 
-		"string" : "5추",
+		"string" : "3",
 		"value" : 1.5
 	}, 
 	SIXTH_OPTION : {
 		"percent" : 30.0, 
-		"string" : "6추",
+		"string" : "2",
 		"value" : 1.0
 	},
 	SEVENTH_OPTION : {
 		"percent" : 60.0, 
-		"string" : "7추",
+		"string" : "1",
 		"value" : 0.5
 	},
 	ZERO_OPTION : {
 		"percent" : 100.0, 
-		"string" : "8추",
+		"string" : "0",
 		"value" : 0
 	},
 }

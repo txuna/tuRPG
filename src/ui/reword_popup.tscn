@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cecu1j8flmqsk"]
+[gd_scene load_steps=8 format=3 uid="uid://cecu1j8flmqsk"]
 
 [ext_resource type="Script" path="res://src/ui/reword_popup.gd" id="1_hb42v"]
 [ext_resource type="Texture2D" uid="uid://1soacpg8f3jg" path="res://Assets/ui/popup_background.png" id="1_v3254"]
 [ext_resource type="Texture2D" uid="uid://3o2os7ymq1yb" path="res://Assets/ui/btn/ok_btn_normal.png" id="2_52dv8"]
 [ext_resource type="FontFile" uid="uid://bv3gahc7tukwm" path="res://Assets/fonts/NanumBarunpenB.ttf" id="2_pktci"]
 [ext_resource type="Texture2D" uid="uid://b3hdd0i2rfnrq" path="res://Assets/ui/btn/ok_btn_pressed.png" id="3_a2hty"]
-[ext_resource type="Texture2D" uid="uid://3056fwk4vvg4" path="res://Assets/monster/mushroom_fill.png" id="4_2kvqv"]
 [ext_resource type="Texture2D" uid="uid://ddsi1j3boxam2" path="res://Assets/ui/result_progress_bar.png" id="5_74agc"]
 [ext_resource type="Texture2D" uid="uid://dbe06083g8416" path="res://Assets/ui/result_progress_bar_inner.png" id="6_1202n"]
 
@@ -21,8 +20,16 @@ offset_right = 362.308
 offset_bottom = 450.769
 texture = ExtResource("1_v3254")
 
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 58.3077
+offset_top = 179.769
+offset_right = 306.308
+offset_bottom = 345.769
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
 [node name="ProgressConrol" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.30769
@@ -42,14 +49,6 @@ theme_override_font_sizes/font_size = 24
 text = "전투 진행중"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MonsterTexture" type="TextureRect" parent="ProgressConrol"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 92.0
-offset_right = 303.0
-offset_bottom = 258.0
-texture = ExtResource("4_2kvqv")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="ProgressConrol"]
 layout_mode = 0
@@ -90,14 +89,6 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_52dv8")
 texture_pressed = ExtResource("3_a2hty")
 
-[node name="MonsterTexture2" type="TextureRect" parent="ResultControl"]
-layout_mode = 0
-offset_left = 65.3077
-offset_top = 92.0
-offset_right = 305.308
-offset_bottom = 258.0
-texture = ExtResource("4_2kvqv")
-
 [node name="ResultLabel" type="Label" parent="ResultControl"]
 layout_mode = 0
 offset_left = 108.0
@@ -111,4 +102,7 @@ text = "승리!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="ResultControl/OkBtn" to="." method="_on_ok_btn_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

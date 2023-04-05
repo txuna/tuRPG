@@ -4,6 +4,9 @@ extends Node2D
 @onready var region_btn = $RegionBtn
 @onready var center_position = $CenterPosition
 @onready var comment_label = $CommentLabel 
+@onready var name_label = $NameLabel 
+
+
 @export var region_id:int = 1
 
 var is_disabled = true
@@ -42,8 +45,10 @@ func get_center_position():
 
 func disable_region():
 	region_btn.disabled = true
-	comment_label.text = "{name}(이동불가)".format({"name" : Global.region_info[region_id].region_name})
+	name_label.text = "{name}".format({"name" : Global.region_info[region_id].region_name})
+	comment_label.text = "(이동불가)"#.format({"name" : Global.region_info[region_id].region_name})
 	
 func enable_region():
 	region_btn.disabled = false
-	comment_label.text = "{name}(이동가능)".format({"name" : Global.region_info[region_id].region_name})
+	name_label.text = "{name}".format({"name" : Global.region_info[region_id].region_name})
+	comment_label.text = "(이동가능)"#.format({"name" : Global.region_info[region_id].region_name})
