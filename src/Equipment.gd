@@ -172,8 +172,209 @@ var prototype = {
 			"damage" : 5, 
 		},
 		"price" : {
-			"buy" : 500, 
-			"sell" : 100
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1 : {
+		"info" : {
+			"id" : 1, 
+			"name" : "부러진 책상다리", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/broken_leg.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "인근 초등학교에서 사용하던 책상의 다리이다. 누군가 의도적으로 부순것이 틀림없다.",
+		}, 
+		"state" : {
+			"damage" : 7, 
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	2 : {
+		"info" : {
+			"id" : 2, 
+			"name" : "나뭇가지", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/branch.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "뒹굴거리는 나뭇가지. 금방 부러질것이 안봐도 뻔하다.",
+		}, 
+		"state" : {
+			"damage" : 3, 
+			"critical_damage" : 1
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	3 : {
+		"info" : {
+			"id" : 3, 
+			"name" : "목검", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/branch_sword.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "초급전사들을 훈련시키기위한 연습용 검이다. 나무로 만들어진터라 내구성이 좋지는 않다.",
+		}, 
+		"state" : {
+			"damage" : 10, 
+			"armor_penetration" : 1
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	4 : {
+		"info" : {
+			"id" : 4, 
+			"name" : "해동된 갈치", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/hairtail.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "직수입한 내동갈치를 상온에서 보관한 것이다. 구워먹으면 맛있을지도?",
+		}, 
+		"state" : {
+			"damage" : 8, 
+			"magic_resistance_penetration" : 5
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	5 : {
+		"info" : {
+			"id" : 5, 
+			"name" : "주방 칼", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/knife.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "가정집 주방에서 흔히 쓰이는 식칼이다. 가정용으로는 최고지만 전투용으로는 글쎄...?",
+		}, 
+		"state" : {
+			"damage" : 12, 
+			"critical_percent" : 2
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	6 : {
+		"info" : {
+			"id" : 6, 
+			"name" : "노트북", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/laptop.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "대학입학 기념으로 선물받은 누군가의 노트북이다.",
+		}, 
+		"state" : {
+			"damage" : 9, 
+			"armor_penetration" : 3, 
+			"critical_damage" : 3, 
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	7 : {
+		"info" : {
+			"id" : 7, 
+			"name" : "제련된 검", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/refined_sword.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "철기로 제련한 검이다. 다른 검에 비해 내구성이 아주 뛰어나다.",
+		}, 
+		"state" : {
+			"damage" : 20, 
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	8 : {
+		"info" : {
+			"id" : 8, 
+			"name" : "샤프나이프", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/sharp_knife.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "매우 날카로운 검이다. 칼 끝을 스치기만해도 무엇이든 베어버린다. ",
+		}, 
+		"state" : {
+			"damage" : 25, 
+			"armor_penetration" : 5, 
+			"critical_percent" : 1, 
+			"critical_damage" : 3
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	9 : {
+		"info" : {
+			"id" : 9, 
+			"name" : "전사의 검", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/warrior_sword.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "초보전사들이 실제상황일때 사용하는 검이다. 초심자용으로 만들어져 다루기 쉽지만 강력하다.",
+		}, 
+		"state" : {
+			"damage" : 30, 
+			"critical_damage" : 5
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	10 : {
+		"info" : {
+			"id" : 10, 
+			"name" : "한손 망치", 
+			"image" : load("res://Assets/equipment/weapon/one_hand/hamer.png"), 
+			"field" : ONE_HAND,
+			"type" : PHYSICAL,
+			"section" : WEAPON, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "못을 박거나 호두를 깰때 쓰는 작은 망치이다. 누군가의 뚝배기를 꺠지는 말자",
+		}, 
+		"state" : {
+			"damage" : 23, 
+			"critical_damage" : 3
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
 		}
 	},
 	100 : {

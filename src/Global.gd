@@ -46,7 +46,7 @@ var village_info = {
 			0 : {
 				"name" : "페리마을 상점",
 				"type" : SHOPKEEPER, 
-				"product" : [0, 1800, 100]
+				"product" : [0, 1,2,3,4,5,6,7,8,9,10, 1800, 100]
 			},
 		}
 	}
