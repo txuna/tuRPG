@@ -41,7 +41,7 @@ func _on_open_detail_popup(item):
 	
 	
 	if item_prototype.info.inventory_type == Equipment.EQUIPMENT:
-		item_name_label.text = "{name}{(+{value})}".format({
+		item_name_label.text = "{name}(+{value})".format({
 			"name" : item_prototype.info.name, 
 			"value" : Equipment.additional_option[item.option].string
 		})
