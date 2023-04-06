@@ -17,26 +17,29 @@ offset_bottom = 40.0
 
 [node name="Background" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -35.0
+offset_top = -14.0
+offset_right = 513.0
+offset_bottom = 677.0
 texture = ExtResource("1_o7q63")
 
 [node name="RestartBtn" type="TextureButton" parent="Control/Background"]
 layout_mode = 0
-offset_left = 89.0
-offset_top = 256.0
-offset_right = 449.0
-offset_bottom = 356.0
-scale = Vector2(0.5, 0.5)
+offset_left = 151.0
+offset_top = 518.0
+offset_right = 511.0
+offset_bottom = 618.0
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("2_s187s")
 texture_pressed = ExtResource("3_d744x")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background"]
 layout_mode = 0
-offset_left = -10.0
-offset_top = 37.0
-offset_right = 350.0
-offset_bottom = 237.0
+offset_left = -15.0
+offset_top = 127.0
+offset_right = 345.0
+offset_bottom = 327.0
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_poeuu")
 
 [connection signal="pressed" from="Control/Background/RestartBtn" to="." method="_on_restart_btn_pressed"]

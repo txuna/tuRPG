@@ -15,7 +15,6 @@ func _ready():
 	MenuControl.toggle_quest.connect(_on_toggle_quest)
 	world_map.trigger_region_from_player(PlayerState.state.current_region_id)
 	PlayerState.init_hud()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -106,7 +105,7 @@ func simulate_combat(region_id, id):
 		
 	else:
 		combat_order.append(monster)
-		combat_order.appnd(player_state)
+		combat_order.append(player_state)
 	
 	var damage = 0
 	# 둘 중 하나가 current_hp가 0이 되면 전투 종료

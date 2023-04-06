@@ -85,32 +85,46 @@ var comment_state_string = {
 	"current_hp" : "현재체력"
 }
 
+var init_state = {
+	"damage" : 10,							# 공격력(마력) 
+	"critical_percent" : 5.0,				# 크리티컬 확률 
+	"critical_damage" : 30,				# 크리티컬 데미지
+	"armor" : 10,							# 방어력
+	"magic_resistance" : 10, 				# 마법저항력
+	"avoidance_rate" : 10.0, 				# 회피율
+	"speed" : 3, 						# 스피드 
+	"final_damage" : 5, 					# 최종데미지 
+	"armor_penetration" : 3, 			# 방관
+	"magic_resistance_penetration" : 3,	# 마관
+	"max_hp" : 100,							# 최대 체력 
+}
+
 # 최종 스탯
 # 기본스탯 + 무기 스탯 
 var state = {
-	"current_hp" : 100, 					# 현재 체력
+	"current_hp" : 10, 					# 현재 체력
 	"max_exp" : 10,							# 최대 경험치
-	"current_exp" : 3, 						# 현재 경험치 
+	"current_exp" : 0, 						# 현재 경험치 
 	"level" : 1,							# 현재 레벨,
 	"current_region_id" : 0,				# 플레이어 현재 위치 
 	"damage_type" : PHYSICAL,				# 데미지 타입
 	"name" : "player", 
 	"coin" : 1000,
-	"upgrade_point" : 5						# 스탯 업그레이드 포인트
+	"upgrade_point" : 0					# 스탯 업그레이드 포인트
 }
 
 # 기본 스탯(플레이어가 투자 가능) + 물약 
 var basic_state = {
 	"damage" : 10,							# 공격력(마력) 
-	"critical_percent" : 10.0,				# 크리티컬 확률 
-	"critical_damage" : 30.0,				# 크리티컬 데미지
-	"armor" : 10.0,							# 방어력
+	"critical_percent" : 5.0,				# 크리티컬 확률 
+	"critical_damage" : 30,				# 크리티컬 데미지
+	"armor" : 10,							# 방어력
 	"magic_resistance" : 10, 				# 마법저항력
 	"avoidance_rate" : 10.0, 				# 회피율
-	"speed" : 10.0, 						# 스피드 
-	"final_damage" : 15.0, 					# 최종데미지 
-	"armor_penetration" : 10.0, 			# 방관
-	"magic_resistance_penetration" : 10.0,	# 마관
+	"speed" : 3, 						# 스피드 
+	"final_damage" : 5, 					# 최종데미지 
+	"armor_penetration" : 3, 			# 방관
+	"magic_resistance_penetration" : 3,	# 마관
 	"max_hp" : 100,							# 최대 체력 
 }
 
@@ -141,6 +155,7 @@ var increase_state_point = {
 	"magic_resistance_penetration" : 2, 
 	"max_hp" : 8
 }
+	
 
 func _ready():
 	calculate_state_from_equipment()

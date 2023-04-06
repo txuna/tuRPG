@@ -14,7 +14,8 @@ func init(_region):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	region_texture.texture = region.image#ImageTexture.create_from_image(region.image)
+	var image = Global.image_info[region.type][region.type_id]
+	region_texture.texture = image#region.image#ImageTexture.create_from_image(region.image)
 	title_label.text = region.region_name
 	
 	if region.type == Global.VILLAGE:
