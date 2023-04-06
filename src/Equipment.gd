@@ -524,6 +524,42 @@ var prototype = {
 	200 : {
 		
 	},
+	1000 : {
+		"info" :{ 
+			"id" : 1000, 
+			"name" : "반듯한 모자",
+			"image" : load("res://Assets/equipment/armor/hat/clean_hat.png"), 
+			"section" : HAT, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "피크닉 갈떄 착용하는 모자이다.",
+		},
+		"state" : {
+			"armor" : 10, 
+			"magic_resistance" : 7
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1001 : {
+		"info" :{ 
+			"id" : 1001, 
+			"name" : "바이킹 투구",
+			"image" : load("res://Assets/equipment/armor/hat/biking_hat.png"), 
+			"section" : HAT, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "옛날 바다위를 누볐던 바이킹들이 쓰던 투구",
+		},
+		"state" : {
+			"armor" : 20, 
+			"max_hp" : 10
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
 	1100 : {
 		"info" :{ 
 			"id" : 1100, 
@@ -535,30 +571,105 @@ var prototype = {
 		},
 		"state" : {
 			"max_hp" : 10, 
-			"armor" : 15
+			"armor" : 10, 
+			"magic_resistance" : 10
 		},
 		"price" : {
-			"buy" : 500, 
-			"sell" : 70
+			"buy" : 1, 
+			"sell" : 1
 		}
 	},
-	1400 : {
+	1101 : {
 		"info" :{ 
-			"id" : 1400, 
+			"id" : 1101, 
+			"name" : "버섯 티셔츠",
+			"image" : load("res://Assets/equipment/armor/shirt/mushrrom_shirt.png"), 
+			"section" : SHIRT, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "버섯으 그려진 티셔츠이다.",
+		},
+		"state" : {
+			"armor" : 25, 
+			"magic_resistance" : 13, 
+			"max_hp" : 35
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1200: {
+		"info" :{ 
+			"id" : 1200, 
+			"name" : "허름한 청바지",
+			"image" : load("res://Assets/equipment/armor/pants/shabby_pants.png"), 
+			"section" : PANTS, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "조금만 더 있으면 찢어질듯한 옷이다.",
+		},
+		"state" : {
+			"armor" : 15,
+			"magic_resistance" : 10, 
+			"speed" : 5, 
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1300 : {
+		"info" :{ 
+			"id" : 1300, 
+			"name" : "허름한 신발",
+			"image" : load("res://Assets/equipment/armor/shoes/shabby_shoes.png"), 
+			"section" : SHOES, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "누군가가 신던 신발이다.",
+		},
+		"state" : {
+			"avoidance_rate" : 5, 
+			"speed" : 5,
+			"max_hp" : 10
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1401 : {
+		"info" :{ 
+			"id" : 1401, 
 			"name" : "군번 귀고리",
 			"image" : load("res://Assets/equipment/armor/earring/dog_tag.png"), 
 			"section" : EARRING, 
 			"inventory_type" : EQUIPMENT,
-			"comment" : "군번줄을 귀고리 형태로 개량한 것이다. 차고 다니면 딸랑딸랑 소리가 난다.",
+			"comment" : "어떤 군인이 사용하는 군번줄이다. 트렌드에 맞춰 귀고리에 맞게 개량했다.",
 		},
 		"state" : {
-			"max_hp" : 10, 
-			"armor" : 15,
-			"critical_percent" : 7
+			"final_damage" : 5
 		},
 		"price" : {
-			"buy" : 1500, 
-			"sell" : 350
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	1501 : {
+		"info" :{ 
+			"id" : 1501, 
+			"name" : "합금 반지",
+			"image" : load("res://Assets/equipment/armor/ring/alloy_ring.png"), 
+			"section" : RING, 
+			"inventory_type" : EQUIPMENT,
+			"comment" : "금 5%, 은 10%, 구리 85%로 이루어진 합금 반지",
+		},
+		"state" : {
+			"damage" : 5, 
+			"critical_percent" : 5, 
+			"critical_damage" : 5
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
 		}
 	},
 	1800 : {
