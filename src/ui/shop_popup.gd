@@ -77,7 +77,8 @@ func _on_display_shop():
 		inner_texture.texture = prototype.info.image
 		outer_texture.gui_input.connect(_on_open_detail.bind({
 			"prototype_id" : product_id, 
-			"additional_state" : {}
+			"additional_state" : {},
+			"option" : Equipment.ZERO_OPTION
 		}))
 		
 		inner_hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL

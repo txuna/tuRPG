@@ -139,8 +139,8 @@ var comment_inventory_type_string = {
 	100 ~ 200 두손검 
 	200 ~ 300 활 
 	300 ~ 400 석궁 
-	400 ~ 500 완드 
-	500 ~ 600 스태프
+	400 ~ 500 스태프
+	500 ~ 600 완드
 	
 	1000 ~ 2000 : 방어구  
 	1000 ~ 1100 : 모자
@@ -389,13 +389,136 @@ var prototype = {
 			"comment" : "돌로된 둔기다. 석쇠구이 불판으로 쓰인다."
 		}, 
 		"state" : {
-			"damage" : 7, 
-			"armor" : 7, 
-			"critical_percent" : 3 
+			"damage" : 4
 		},
 		"price" : {
-			"buy" : 1500, 
-			"sell" : 300
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	101 : {
+		"info" : {
+			"id" : 101, 
+			"name" : "헤머", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/harmer.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "무언가를 깨거나 부술 때 사용하던 헤머다. 조심히 다루지 않으면 다칠 수 있다."
+		}, 
+		"state" : {
+			"damage" : 6, 
+			"critical_damage" : 2
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	102 : {
+		"info" : {
+			"id" : 102, 
+			"name" : "고블린 창", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/goblin_sword.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "고블린이 쓰던 창이다. 관리소홀로 인하여 내구성이 좋지 않은 편이다. "
+		}, 
+		"state" : {
+			"damage" : 8,
+			"armor" : 5, 
+			"magic_resistance" : 5
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	103 : {
+		"info" : {
+			"id" : 103, 
+			"name" : "골프 채", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/golf_sword.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "사장님 나이스 샷~"
+		}, 
+		"state" : {
+			"damage" : 12, 
+			"armor_penetration" : 5, 
+			"magic_resistance_penetration" : 5
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	104 : {
+		"info" : {
+			"id" : 104, 
+			"name" : "곡괭이", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/pick.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "석탄 캐던 곡괭이가 왜 여기에?"
+		}, 
+		"state" : {
+			"damage" : 15, 
+			"critical_damage" : 3, 
+			"critical_percent" : 3
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	105 : {
+		"info" : {
+			"id" : 105, 
+			"name" : "낫", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/sickle.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "풀베기용 낫이다. 끝이 녹이 슬어 위협적이지 않지만 베이면 아프기 때문에 조심해야한다. "
+		}, 
+		"state" : {
+			"damage" : 18,
+			"final_damage" : 3, 
+			"armor_penetration" : 3
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
+		}
+	},
+	106 : {
+		"info" : {
+			"id" : 106, 
+			"name" : "대검", 
+			"image" : load("res://Assets/equipment/weapon/two_hand/big_sword.png"), 
+			"field" : TWO_HAND, 
+			"type" : PHYSICAL,
+			"section" : WEAPON,
+			"inventory_type" : EQUIPMENT,
+			"comment" : "장인이 만든 무거운 양손검이다. 훈련받은 전사들이 모험을 떠날 때 주로 쓰던 검이다. "
+		}, 
+		"state" : {
+			"damage" : 25, 
+			"final_damage" : 5, 
+			"armor_penetration" : 2
+		},
+		"price" : {
+			"buy" : 1, 
+			"sell" : 1
 		}
 	},
 	200 : {

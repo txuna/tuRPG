@@ -101,7 +101,7 @@ texture_pressed = ExtResource("7_o4saq")
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect"]
 layout_mode = 0
 offset_left = 71.0
-offset_top = 202.0
+offset_top = 211.0
 offset_right = 346.0
 offset_bottom = 398.0
 
